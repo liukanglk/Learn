@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="demo">
+    <!--双向绑定 v-model-->
+    <input type="text" v-model:value="msg">
+    <!--属性绑定-->
+    <div id="output" :title="title">{{msg}}</div>
+</div>
+<script type="text/javascript">
+    new Vue({
+        el:'#demo', //挂载点
+
+        data:{
+            msg:'hello',
+            title:'123456'
+        },
+        methods:{
+            ale:function () {
+                alert(1);
+            }
+        }
+
+    })
+</script>
+</body>
+</html>

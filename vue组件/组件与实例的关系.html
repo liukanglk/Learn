@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todolist功能开发</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <input v-model="inputValue">
+    <button @click="Submit">提交</button>
+
+<ul>
+    <todo-item
+            v-for="(item,index) of list"
+            :key="index"
+    :content="item"
+   >
+
+    </todo-item>
+</ul>
+</div>
+</body>
+<script>
+    <!--把一个大型项目拆分成几个小部分 这就是组件-->
+    //全局组件 任何项目都能使用
+    //vue 的每个组件都是实例 都可以定义方法什么的
+    Vue.component('todo-item',{
+        props:['content'],
+        template:'<li @click="click">{{content}}</li>',
+        methods:{
+            click:function () {
+                alert('clicked');
+            }
+
+        }
+    });
+
+    //局部组件
+    // var TodoItem={
+    //     template:'<li>item</li>'
+    // }
+    new Vue({
+        el:'#root',
+        // (1)components:{  配合局部组件使用
+        //     'todo-item':TodoItem
+        // },
+        data:{
+            inputValue:'',
+            list:[],
+        },
+        methods:{
+            Submit:function () {
+                this.list.push(this.inputValue);
+                this.inputValue='';
+            }
+        }
+
+    })
+</script>
+</html>

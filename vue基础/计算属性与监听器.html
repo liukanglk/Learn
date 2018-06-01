@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>计算属性与监听器</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="demo">
+    姓：<input type="text" v-model="firstName">
+    名：<input type="text" v-model="lastName">
+    <!--<div>{{firstName}}   {{lastName}}</div>-->
+    <div>{{fullName}}</div>
+    <div>{{count}}</div>
+</div>
+<script type="text/javascript">
+    new Vue({
+        el:'#demo', //挂载点
+
+        data:{
+            firstName:'liu',
+            lastName:'kang',
+            count:0
+        },
+        computed:{
+          //  计算属性：一个属性是由其他的数据计算而来的结果
+          fullName:function () {
+              return this.firstName+'  '+this.lastName;
+          }
+          
+        },
+        watch:{
+        //    监听器：监听某一数据的变化 一旦发生了变化就会触发这些函数
+            firstName:function () {
+                this.count++;
+            },
+             lastName:function () {
+                this.count++;
+            },
+
+        }
+
+    })
+</script>
+</body>
+</html>

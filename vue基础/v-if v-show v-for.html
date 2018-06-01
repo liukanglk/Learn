@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="../vue.js"></script>
+  </head>
+  <body>
+    <div id="demo">
+      <!--<div v-if="show">hello world</div>  //show true/false 为真就显示 否则隐藏-->
+      <div v-show="show">hello world</div>
+      <!--v-show 和 v-if的区别是 前者不会把dom去除 而是会display：none 而v-if会直接去除-->
+      <button @click="handleClick">toggle</button>
+      <ul>
+        <li v-for="item of list" :key="item">{{item}}</li>
+        <!--如果后面加key的话 各项内容不可以相同-->
+      </ul>
+    </div>
+    <script type="text/javascript">
+      new Vue({
+          el:'#demo',
+          data:{
+              show:true,
+              list:[1,2,3,4,5]
+          },
+          methods:{
+              handleClick:function () {
+                  this.show=!this.show;
+              }
+          }
+      })
+    </script>
+  </body>
+</html>
