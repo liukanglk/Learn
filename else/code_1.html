@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="ife31data.js"></script>
+</head>
+<style>
+input{
+    margin-left: 20px;
+}
+</style>
+<body>
+<select id="region-select">
+    <option>华东</option>
+    <option>华北</option>
+    <option>华南</option>
+</select>
+<br>
+<label>
+    <input type="radio" name="electronicEquipment" value="手机">手机
+</label>
+<label>
+    <input type="radio" name="electronicEquipment" value="笔记本">笔记本
+</label>
+<label>
+
+    <input type="radio" name="electronicEquipment" value="智能音箱">智能音箱
+</label>
+
+
+
+<div id="table-wrapper">
+    <table border="1">
+        <tr>
+            <th>月份</th>
+            <th>地区</th>
+            <th>1月</th>
+            <th>2月</th>
+            <th>3月</th>
+            <th>4月</th>
+            <th>5月</th>
+            <th>6月</th>
+            <th>7月</th>
+            <th>8月</th>
+            <th>9月</th>
+            <th>10月</th>
+            <th>11月</th>
+            <th>12月</th>
+        </tr>
+    </table>
+</div>
+<script>
+    let sle=document.querySelector('#region-select');
+    let tab=document.querySelector('#table-wrapper');
+    let ta=document.querySelector('table');
+    let radio=document.querySelectorAll('input');
+
+    sle.onchange = function() {
+        let index=sle.selectedIndex;
+        let value=sle.options[index].text;
+
+        let rad;
+        for (let i=0;i<radio.length;i++){
+            if (radio[i].checked===true){
+                rad=radio[i].value;
+            }
+        }
+        let rel = sleChoose(value,rad);
+        console.log(rel);
+        tableShow(rel);
+
+    }
+
+   function sleChoose(rel,pro) {
+        let result=[];
+        for (let i=0;i<sourceData.length;i++){
+            if (rel===sourceData[i].region && pro===sourceData[i].product){
+                result.push(sourceData[i].region,sourceData[i].product,sourceData[i].sale);
+                // result.push(sourceData[i].sale);
+            }
+        }
+        return result;
+    }
+
+    function tableShow(data) {
+        for (let i=0;i<data.length-1;i++) {
+            let tr=document.createElement('tr');
+            tr.appendChild(document.createElement('td').appendChild(document.createTextNode(data[i])));
+            tr.appendChild(document.createElement('td').appendChild(document.createTextNode(data[i])));
+
+            for(let j=2;j<i.length;j++) {
+
+                let td = document.createElement('td');
+                let td_text = document.createTextNode(i[j]);
+                td.appendChild(td_text);
+                tr.appendChild(td);
+                ta.appendChild(tr);
+                tab.appendChild(ta);
+
+            }
+
+        }
+
+
+    }
+</script>
+</body>
+</html>
