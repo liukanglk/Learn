@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>队列实现</title>
+</head>
+<body>
+<script>
+    // 队列 先入先出
+    function Queue() {
+        let queue=[];
+        this.enqueue=function (item) {
+            queue.push(item);
+        };
+        this.dequeue=function () {
+          return queue.shift();
+        };
+        this.front=function () {
+            return queue[0];
+        }
+        this.isEmpty=function () {
+            return queue.length===0;
+        }
+        this.size=function () {
+            return queue.length;
+        };
+        this.clear=function () {
+            queue=[];
+        }
+        this.print=function () {
+            console.log(queue.toString());
+        }
+
+
+    }
+
+    let que=new Queue();
+    console.log(que.isEmpty());
+    console.log(que.size());
+    que.enqueue(3);
+    que.enqueue(4);
+    que.print();
+    que.dequeue();
+    que.print();
+    console.log(que.isEmpty());
+    console.log(que.size());
+
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let str='abc123dfg45';
+    let pat=/\d{1}/;
+    console.log(str.match(pat));  //\d 数字 \d+ 一个或多个数字  \d{n} 匹配几个数字
+    let str1='123abc'
+    let pat1=/^\d+abc$/;
+    console.log(str1.match(pat1));
+</script>
+</html>

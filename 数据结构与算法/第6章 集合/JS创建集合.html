@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Set() {
+        let items={};
+        this.has=function (value) {
+            return value in items;
+        }
+
+        //对于给定的value 如果存在则返回false  如果不存在 则添加进集合
+        this.add=function (value) {
+            if (!this.has(value)){
+                items[value]=value;
+                return true;
+            }
+            return false;
+        };
+        this.remove=function (value) {
+            if (this.has(value)){
+                delete items[value];
+                return true;
+            }
+            return false;
+        };
+        this.clear=function () {
+            items={};
+        }
+        this.size=function () {
+            return Object.keys(items).length;
+        }
+        this.values=function () {
+            return Object.keys(items);
+        }
+    }
+
+    let set=new Set();
+    set.add(1);
+    console.log(set.values());
+    console.log(set.has(1));
+    console.log(set.size());
+    set.add(2);
+    console.log(set.values());
+    console.log(set.has(1));
+    console.log(set.size());
+    set.remove(1);
+    console.log(set.values());
+    console.log(set.has(1));
+    console.log(set.size());
+
+</script>
+</body>
+</html>

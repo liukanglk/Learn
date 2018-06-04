@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS实现栈</title>
+</head>
+<body>
+<script>
+    function Stack() {
+        let items=[];
+        this.push=function (item) {
+            items.push(item);
+        }
+        this.pop=function () {
+            items.pop();
+        }
+        this.peek=function () {
+            return items[items.length-1];
+        }
+        this.isEmpty=function () {
+            return items.length===0;
+        }
+        this.size=function () {
+            return items.length;
+        }
+        this.clear=function () {
+            items=[];
+        }
+        this.print=function () {
+            console.log(items.toString());
+        }
+    }
+
+    let stack=new Stack();
+    console.log(stack.isEmpty(),stack.size());
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    console.log(stack.isEmpty(),stack.size());
+    stack.print();
+    console.log(stack.peek());
+    stack.clear();
+    console.log(stack.isEmpty(),stack.size());
+</script>
+
+</body>
+</html>
