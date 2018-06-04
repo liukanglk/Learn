@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象的解构赋值</title>
+</head>
+<body>
+<script>
+    {
+    //    解构也可用于对象
+        let{foo,baz}={foo:'aaa',baz:'bbb'};
+        // console.log(foo,baz); aaa bbb
+
+    //    对象解构与数组有一个重要的不同 就是对象的属性没有次序 变量必须与属性同名 而数组是有次序的
+        let {bar}={foo:'asd',baz:'asdd'};
+        // console.log(bar);  undefined
+
+
+    //    若变量名与属性名不一致 则应写成下面的模式
+        let{foo1:baz1}={foo1:'aaa',bar:'bbb'};
+        // console.log(baz1); aaa
+        // console.log(foo1);  报错
+        /*从上面的例子可以看出对象的解构赋值是内部机制，先找到同名属性，然后在赋给对应的变量，真正被辅助
+         的是后者  也就是说 赋值其实的模式时这样的:
+        let{foo,baz}={foo:'aaa',baz:'bbb'}等价于let{foo:foo,baz:baz}={foo:'aaa',baz:'bbb'}*/
+    }
+    {
+    //    与数组一样，对象解构也可以嵌套
+        let obj={
+            p:[
+                'hello',
+                {y:'world'},
+            ]
+        };
+        let{p,p:[x,{y}]}=obj;
+        // console.log('x=',x,'y=',y,'p=',p);
+
+        const node={
+            loc:{
+                start:{
+                    line:1,
+                    column:5
+                }
+            }
+        };
+        let {loc,loc:{start},loc:{start:{line,column}}}=node;
+        // console.log(line,column,start,loc);
+    }
+
+
+    {
+    //    赋值
+    //    嵌套赋值
+        let obj={};
+        let arr=[];
+        ({foo:obj.prop,bar:arr[0]}={foo:'aaa',bar:1});
+        // console.log(obj.prop,arr[0]); aaa,1
+
+        // 对象的解构也可以使用默认值
+        let{foo=3}={};
+        // console.log(foo); 3
+        var {x,y=5}={x:3};
+        // console.log(x,y); 3 5
+    //    解构失败会被定为undefined
+    //     如果解构模式时嵌套的对象，而且子对象所在的父属性不存会报错
+    //     let {foo1:{bar}}={baz:'baz'};  报错
+
+    }
+
+
+
+</script>
+</body>
+</html>

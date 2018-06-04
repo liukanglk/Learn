@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rest参数</title>
+</head>
+<body>
+<script>
+    {
+    //    ES6中引用了rest参数：形式为 ...变量名，用于获取多余参数
+        function add(...values) {
+            let sum=0;
+            for (var val of values){
+                sum+=val;
+            }
+            console.log(sum);
+        }
+        add(1,2,3);
+
+        // 通过rest参数 也可以重新定义push
+        function push(arr,...items) {
+            items.forEach(function (item) {
+                arr.push(item);
+                console.log(item);
+            })
+        }
+        var a=[];
+        push(a,1,2,3,4,5) //1 2 3 4 5
+    //    注意rest参数后不可以在有参数 否则会报错
+    }
+</script>
+</body>
+</html>

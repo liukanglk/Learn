@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组的解构赋值</title>
+</head>
+<body>
+<script>
+    {
+        /*
+        原来为变量赋值
+        let a=1;
+        let b=2;
+        ES6 允许直接赋值*/
+        let[a,b]=[1,2];
+        // console.log(a,b);  ->1  2
+    //    但是这种结构必须模式上匹配  如下面的例子
+        let[foo,[[bar],baz]]=[1,[[2],3]];
+        // console.log(foo,bar,baz); -> 1 2 3
+    //    解构不成功的会被赋值为undefined
+        let[a1,[b1],d1]=[1,[2],3];
+        // console.log(a1,b1,d1); -> 1 2 3
+/*       如果等号右面不为数组  则会报错
+        let[foo1]=1;
+        let[foo2]=false*/;
+    }
+
+
+
+
+
+    {
+    // 默认值：解构赋值允许指定默认值
+        let[foo=true]=[];
+        // console.log(foo); true
+        let[a=1,b]=[,2];
+        // console.log(a,b);  1 2
+
+    //    如果默认值是一个表达式，那么这个表达式是惰性赋值 只有在用到的时候才会运行
+        function f() {
+            console.log('aaaa');
+        }
+/*        let[x=f()]=[1];
+        console.log(x);  1 因为x能取到值 所以f不会运行 下面例子则会运行*/
+        let[x=f()]=[];
+        // console.log(x);  aaaa
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>解构赋值的用途</title>
+</head>
+<body>
+<script>
+    {
+    //    1:交换变量的值
+        let x=1;
+        let y=2;
+        [x,y]=[y,x];
+        console.log(x,y);  //2 ,1
+    }
+
+    {
+    //    2:从函数返回多个值
+    //     函数只能返回一个值 ，如果要返回多个值，就只能将他们放在数组或对象中返回 有个解构赋值，取出这些值就非常方便
+    function f1() {
+        return [1,2,3];
+    }
+    let[a,b,c]=f1();
+    console.log(a,b,c);   //1 2 3
+
+    //返回一个对象
+        function f2() {
+            return{
+                foo:1,
+                bar:'aaa'
+            }
+        }
+        let{foo,bar}=f2();
+        console.log(foo,bar);
+    }
+
+    {
+    //    函数参数的定义：解构赋值可以方便的将一组参数与变量名对应起来
+        function f([x,y,z]) {
+
+        }
+        f([1,2,3]);
+    //    参数是一组无次序的值
+        function f3({x,y,z}) {
+
+        }
+        f3({z:3,y:2,x:1});
+    }
+
+
+
+    {
+    //    4:提取JSON数据
+        let jsonData={
+            id:42,
+            status:'ok',
+            data:[867,5390]
+        };
+        let{id,status,data:number}=jsonData;
+        console.log(id,status,number);
+    }
+
+    {
+    //    遍历map解构
+        const map=new Map();
+        map.set('first','hello');
+        map.set('second','world');
+        //for of 循环遍历
+        for(let [key,value] of map){
+            console.log(key+' is '+value);
+        }
+    //    如果想读取键名
+        for(let [key] of map){
+            console.log('key is '+key);
+        }
+    //    读取键值
+        for(let[,value] of map){
+            console.log('the value is '+value);
+        }
+    }
+
+</script>
+</body>
+</html>

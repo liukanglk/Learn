@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>name属性</title>
+</head>
+<body>
+<script>
+    {
+        // 函数的name属性，返回该函数的函数名
+        function foo() {
+
+        }
+        console.log(foo.name); //foo
+
+        var f=function () {
+
+        }
+        console.log(f.name);  //匿名参数在ES6中会返回函数名 ES5中返回空字符串
+    }
+
+</script>
+</body>
+</html>

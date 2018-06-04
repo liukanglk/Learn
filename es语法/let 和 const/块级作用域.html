@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>块级作用域</title>
+</head>
+<body>
+<script>
+    {
+    //    es5中没有块级作用域 这就会导致一些问题 如下面这个
+        var temp='a';
+        function f() {
+            console.log(temp);
+            var temp='b';
+        }
+        // f(); 输出为undefined 为什么呢？因为变量提升  函数内部的var temp 提升到函数外面 该声明覆盖了外面的声明 且没有赋值
+    //    而且会造成变量泄露  如下：
+        for(var i=0;i<2;i++){
+
+        }
+        // console.log(i);  输出为2  即在for外部 i还能被读取到
+    }
+
+
+
+    {
+    //    let实际上为es6增加了块级作用域
+        function f1() {
+            let n=5;
+            if (true){
+                let n=10;
+            }
+             console.log(n);
+        }
+        // f1();  输出为5 即内部let声明的n未影响外部 而且也不会被外部访问到 但是如果用var 输出则为10
+
+    }
+</script>
+</body>
+</html>

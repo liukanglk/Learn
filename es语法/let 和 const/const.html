@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>const</title>
+</head>
+<body>
+<script>
+    {
+        // const 常量 一旦声明 不可以改变
+        const pi = 3.14;
+        console.log(pi);
+        // pi=2; 会报错 因为const声明的变量不能赋值 const这一属性也意味着 const一旦声明 就要赋值 否则无意义 这一点和var 不同
+        // const和let的作用域相同 都是在声明所在的块级作用域内有效 const和let一样 不能重复进行赋值
+        //const 实际上保证的并不是变量的值不可以变动 而是内存地址不得变动  因此const的应用必须谨慎
+        const foo={};
+        foo.name='123'; //成功
+        console.log(foo.name);
+        // foo={};  失败 报错
+
+
+
+    }
+
+
+
+
+</script>
+</body>
+</html>

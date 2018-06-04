@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数值的操作</title>
+</head>
+<body>
+<script>
+    {
+    //    Number.isFinite():检查数值是否有限
+    //    Number.isNan():检查是否为NaN
+        console.log(Number.isFinite(15));  //true
+        console.log(Number.isFinite(NaN));  //false
+        console.log(Number.isNaN(15));  //false
+        console.log(Number.isNaN(NaN));  //true
+        console.log(isNaN('ew'));  //true
+
+    //    Number.isInteger():判断是否为整数
+        console.log(Number.isInteger(15)); //true
+        console.log(Number.isInteger(15.3)); //false
+
+
+
+
+    }
+</script>
+</body>
+</html>

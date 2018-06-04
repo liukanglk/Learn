@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RegExp构造函数</title>
+</head>
+<body>
+<script>
+    {
+    //    ES5 中构造函数有两种情况 1：参数是字符串
+        var regex=new RegExp('xyz','i'); //等价于var regex=/xyz/i
+    //    第二种是参数是一个正则表达式
+        var regex1=new RegExp(/xyz/i);  //等价于var regex1=/xyz/i
+    //    但是ES5中不允许给第二个参数添加修饰符 否则会报错  但是ES6不会 下面表达式 在ES5中会报错
+        var regex2 = new RegExp(/xyz/, 'i');
+    //    ES6中如果给第二个参数制定了修饰符 那么会覆盖原来的
+        new RegExp(/abc/ig,'i')  //i会覆盖ig
+
+    }
+
+    {
+    //    字符串的正则方法
+        /*1：match(); 匹配  相当于搜索
+        * 2:replace(); 替代  返回替代后的字符串 并不改变原字符串
+        * 3:search() 查找  返回查找到的位置序列 如果没匹配到返回-1
+        * 4:split(): 切割  将字符串切割成数组形式 第一个参数为起点  第二个为切割的字符串长度 如果没有则整个字符串会被分割 如果设置了 切割后打的
+        * 字符串长度不会超过设置的参数
+        *
+        * */
+        let str='hello world! My name is hello';
+        console.log(str.match(/hello/g));  //match 会匹配到所有复合的情况 ['hello','hello']
+        console.log(str.search(/hello/));  //0 返回0  是表示第一次查找到hello的位置
+        console.log(str.replace(/hello/g,'lk')); //lk world! My name is lk  将所有的hello 替换为lk
+        console.log(str.split(/he/));  //  ["", "llo world! My name is ", "llo"]
+        console.log(str.split(/he/,2));  //  ["", "llo world! My name is ", "llo"]
+
+    }
+</script>
+</body>
+</html>

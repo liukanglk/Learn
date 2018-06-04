@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数参数的默认值</title>
+</head>
+<body>
+<script>
+    {
+    //    ES6之前 不能直接为函数参数指定默认值 只能采用下面这种变通的方法
+        function log(x,y) {
+            y=y||'world';  //y若未赋值则为world
+            console.log(x,y);
+        }
+/*        log(3);  //3 world
+        log(3,4) //3 ,4*/
+    //    ES6中允许直接为函数参数赋默认值，即直接卸载函数定义的后面
+        function log1(x,y='world') {
+            console.log(x,y);
+        }
+/*        log1('hello ');  //hello world
+        log1('hello ','lk') // hello lk*/
+    }
+    {
+    //    参数变量是默认声明的 所以不能用let 或者const再次声明
+        function foo(x=5) {
+            // let x=7;  error
+            // const x=8; error
+        }
+
+
+        //与解构赋值默认值结合使用
+        function foo1({x,y=5}) {
+            console.log(x,y);
+        }
+/*       foo1({});  //undefined 5
+       foo1({x:1});  //1 5
+        foo1({x:1,y:2})  //1 2*/
+        // foo1();  error 必须传入对象
+
+        function fetch(url, { body = '', method = 'GET', headers = {} }) {
+            console.log(method);
+        }
+
+        // fetch('http://example.com', {})// "GET"
+
+        // fetch('http://example.com')   error
+
+    }
+
+
+
+    {
+    //    参数默认值的位置：通常情况下 定义了默认值的参数 ，应该是函数的为参数，因为这样比较清晰的看出来到底省略了哪些参数
+        function f(x=1,y) {
+            console.log(x,y);
+        }
+/*        f(); //1 undefined
+        f(2); // 2 undefined
+        // f(,1)  error
+        f(undefined,1) //1 1*/
+    //    因为默认值得参数都不是为参数，无法省略该参数，除非显示的定义undefined
+        function f1(x,y=1,z) {
+            console.log(x,y,z);
+        }
+ /*       f1(); //undefined 1 undefined
+        f1(1,2,3)  //1 2 3
+        f1(1)  // 1 1  undefined
+        // f1(1,,2) error
+        f1(1,undefined,2) //1 1 2*/
+
+
+    }
+
+    {
+    //    函数的length属性：设置了默认值后，函数的length属性将返回没有指定默认值的参数个数 若都有值 则length为0
+/*        console.log((function (a) {}).length); //1
+        console.log((function (a=1) {}).length);  //0
+        console.log((function (a,b,c=1) {}).length);  //2
+        console.log((function (a=1,b,c) {}).length);  //0  注意 如果默认参数不是尾参数，那么length属性也不计后面的参数*/
+    }
+
+    {
+    //    作用域 一旦设置了参数的默认值 函数进行声明初始化时,参数会形成一个单独的作用域 等到初始化结束,这个作用域就会消失
+        let x=1;
+        function f(x,y=x) {
+            console.log(y);
+        }
+        f(2);  //2  调用这个函数时 参数形成一个单独的作用域，在这个作用域里 默认值x指向第一个参数x，而不是全局变量
+
+        let z=1;
+        function f2(y=z) {
+            let z=2;
+            console.log(y);
+        }
+        f2();  //1  调用f时 y=z行程一个单独的作用域，在这个作用域里，变量x本身没有定义，所以指向群全局变量x
+    //    函数调用时，函数体内的局部变量影响不到默认变量x  但是如果全局变量x不存在 就会报错
+
+    }
+
+</script>
+</body>
+</html>

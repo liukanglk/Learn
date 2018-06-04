@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数值和布尔值的解构赋值</title>
+</head>
+<body>
+<script>
+    {
+    //    解构赋值时，如果等号右边是数值或者布尔值，则会先转化为对象
+        let{toString:s}=123;
+        console.log(s===Number.prototype.toString);
+
+        let{toString:a}=true;
+        console.log(a===Boolean.prototype.toString);
+    //解构赋值的规则是，只要等号右边的值不是对象或者数组就先将其转化为对象  由于null 和undefined都无法转换为对象所以对他们进行解构赋值会报错
+    //     let{prop:x}=undefined;  报错
+        // let{prop:y}=null;         报错
+    }
+</script>
+</body>
+</html>

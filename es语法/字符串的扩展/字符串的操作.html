@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符串的操作</title>
+</head>
+<body>
+<script>
+    {
+    //    传统中 js中只有indexOf ES6中又提供了三种新方法
+        /*
+        * 1:includes(): 返回布尔值，表示是否找到了参数字符串
+        * 2:startsWith():返回布尔值，表示参数字符串是否在原字符串的头部
+        * 3:endsWith(): 返回布尔值，表示参数字符串是否在原字符串的尾部
+        * */
+        let s='hello world';
+/*        console.log(s.includes('hello'));  //true
+        console.log(s.startsWith('hello'));  //true
+        console.log(s.endsWith('hello'));  //false
+        console.log(s.endsWith('world'));  //true
+        //这三方法都支持第二个参数  表示起始位置
+        console.log(s.includes('world',7)) //false
+        console.log(s.includes('world',3)) //true*/
+    }
+
+
+
+    {
+    //    repeat：返回一个新字符串，表示将原字符串重复N次
+        console.log('hello'.repeat(2));  //hellohello
+    }
+
+
+    {
+        //padStart():头部补全 如果字符串不够指定长度会在头部补全
+        //padEnd():尾部补全 如果字符串不够指定长度会在尾部补全
+
+/*        console.log('x'.padStart(5,'ab'));  //ababx
+        console.log('x'.padStart(4,'ab'));  //abax
+        console.log('x'.padStart(2,'ab'));  //ax
+        console.log('x'.padStart(1,'ab'));  //x
+
+
+        console.log('x'.padEnd(5,'ab'));    //xabab
+        console.log('x'.padEnd(4,'ab'));    //xaba*/
+
+    //    如果第二个参数为空 则会用空格来补齐
+        console.log('x'.padStart(3));
+
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array.from</title>
+</head>
+<body>
+<script>
+    {
+        /*
+        Array.from():将两类对象转化为真正的数组
+        (1)：类似数组的对象
+        (2)：可遍历的对象
+        * */
+
+        //(1) 类似数组的对象
+        let arrlike={
+            '0':'a',
+            '1':'b',
+            '2':'c',
+            length:3
+
+        };
+        console.log(Array.from(arrlike)); //['a','b','c']
+
+    }
+
+    {
+        //array.of:将一组值变为数组
+        console.log(Array.of(1,2,3)); //1 2 3
+        console.log(Array.of(1,2,3).length); //3
+
+
+    }
+
+
+    {
+        /*copyWithin（）：将指定位置成员赋值到其他位置（会覆盖）它接收三个参数
+        * （1）：target 必须 从该位置开始替换 如果为负数 表示倒数
+        * （2）：start：可选  从该位置开始读取数据 默认为0
+        * （3）：end:可选 从该位置停止读取数据*/
+        
+        //将3号位置替换0号位置
+        console.log([1,2,3,4,5].copyWithin(0,3,4));  //[4,2,3,4,5]
+        // -2相当于3号位，-1相当于4号位
+        console.log([1,2,3,4,5].copyWithin(0,-2,-1));  //[4,2,3,4,5]
+    }
+
+    {
+        /*find()和findIndex():
+        * find():找出第一个复合条件的数组成员 如果没有返回undefined
+        * findIndex():找出符合成员的位置
+        *
+        * */
+        console.log([1, 4, -5, 10].find((n) => n < 0)); //-5
+
+        [1,5,10,15].findIndex(function (value, index, arr) {
+            return value>9;
+        })
+        console.log( [1,5,10,15].findIndex(function (value, index, arr) {
+            return value>9;
+        })); //2
+    }
+
+    {
+        //fill 给个定值 填充数组  它可以接收三个参数  第二个和第三个为起始结束位置
+        ['a','b','c'].fill(5);
+        console.log(['a','b','c'].fill(5)); //[5,5,5]
+        
+        console.log(['a','b','c'].fill(5,1,2));  //[a,5,c]
+    }
+
+    {
+        /*entries():
+        * keys():
+        * values():
+        * 他们都是用于遍历数组  keys是对键的遍历 value是对键值的遍历 而entries是对键值对的遍历
+        * */
+        for (let index of ['a', 'b'].keys()) {
+            console.log(index);  //0 1
+        }
+        
+        for(let val of ['a','b'].values()){
+            console.log(val); //a b
+        }
+        for(let entire of['a','b'].entries()){
+            console.log(entire); //[0,'a'] [1,'b']
+        }
+    }
+
+    {
+        /*include:查看是否存在元素 存在为true 否则为false */
+        console.log([1,2,3].includes(3)); //true
+        console.log([1,2,3].includes(5)); //false
+    }
+</script>
+</body>
+</html>

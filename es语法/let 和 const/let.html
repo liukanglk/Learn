@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>let</title>
+</head>
+<body>
+<script>
+    {
+    //    let和var作用相似 但是作用域不同 let只在声明的代码块内有效 也正因如此 所以let并没有变量提升 而var有变量提升
+        let a=1;
+        var b=2;
+    }
+    // console.log(a);  not defined
+    // console.log(b);  2
+
+    {
+        // for中应用let较好
+         for(let i=0;i<10;i++){
+             // onsole.log(i);0 1 2 3 4 5 6 7 8 9
+         }
+        // console.log(i);  注意 在作用块外用i 会报错 因为let只在声明的代码块中有效
+        var a=[];
+        for(var i=0;i<10;i++){
+            a[i]=function () {
+                console.log(i);
+            }
+        }
+        // a[1]();
+
+        // a[1]();  注意输出为10  因为i是var 实现的 在全局范围内有效只有一个i i每次都赋值给了console.log(i)里的i 最后调用的时候为循环后的i
+    //    若用let 则会输出1
+        var b=[];
+        for(let j=0;j<10;j++){
+            b[j]=function () {
+                console.log(j);
+            }
+        }
+        // b[1]();1 因为let只在自己声明的块内有效  所以每次循环j都是一个新的变量
+    //    其实for包含两个作用域 一个父作用域 一个子作用域 下面例子可以说明
+        for(let i=0;i<3;i++){
+            let i='ad';
+            // console.log(i); 结果是输出了三次 ad
+        }
+    }
+
+
+
+
+
+
+
+
+
+    {
+    //    	只要let声明了变量 那么这个变量就绑定了这个块 即使外面有var 声明也不会影响内部。看下面例子：
+        if(true){
+            // temp='a'; 报错
+            // console.log(temp);  报错
+            // console.log(typeof (temp)); 注意 也会报错  但是当typeof里参数为未声明的变量则不会 看下面：
+            // console.log(typeof (d));  不会报错 只会出现undefined
+            let temp='b';   //注意 此时temp才有值 且不存在变量提升 不可以在let之前用它 否则报错
+            // console.log(temp);   输出为b
+
+            temp='c';   //此时可以为temp赋值了 因为这在let之后
+            // console.log(temp);  输出为c
+
+
+        }
+
+    }
+
+
+
+
+
+    {
+    //    let 不允许 在一块作用域内重复声明同一变量 否则会报错
+            function func() {
+                let a=1;
+
+                // let a=2; 会出错
+            }
+
+            function  fun(arg) {
+                // let arg; 报错
+                {
+                    let arg;  //不报错
+                }
+            }
+    }
+
+</script>
+</body>
+</html>
