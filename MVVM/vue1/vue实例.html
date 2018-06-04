@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue实例</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<script>
+    {
+        var vm = new Vue({
+            //创建实例
+        });
+
+//    扩展Vue构造器
+        var MyComponent = Vue.extend({
+            //扩展选项
+        })
+
+//    所有的‘myComponen'实例都将以预定义的扩展选项被创建
+        var myComponentInstance = new MyComponent();
+    }
+    {
+//    属性和方法：每个Vue实例都会代理其data对象里所有的属性
+        var data = {a: 1}
+        var vm1 = new Vue({
+            data: data
+        })
+        //vm1.a===data.a  true
+//    设置属性也有影响原有属性,反之亦然
+        vm1.a = 2;
+        console.log(data.a);
+        data.a = 3;
+        console.log(vm1.a);
+    }
+
+//    除了这些数据属性，vue实例暴露了一些有用的实例属性和方法，这
+    // 些属性和方法都带有$，以便与代理属性区分
+    {
+        var data = { a: 1 }
+        var vm = new Vue({
+            el: '#example',
+            data: data
+        })
+      console.log(vm.$data===data);
+      console.log(vm.$el === document.getElementById('example'))  //true
+
+    //watch 是一个实例方法
+        vm.$watch('a',function (newVal,oldVal) {
+            //这个回调将在‘vm.a’改变后调用
+        })
+
+    }
+
+
+    //实例声明周期
+    {
+        var vm=new Vue({
+            data:{
+                a:1
+            },
+            created:function () {  //created是在实例调用后使用
+                //this指向vm对象
+                console.log('a is: '+this.a)
+            }
+        })
+    }
+
+</script>
+</body>
+</html>

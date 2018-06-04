@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //在全局函数中，this 等于window 而当函数被作为某个函数调用时，this等于那个对象，不过匿名函数的执行环境通常具有全局性，
+    //因此this对象通常指向window，但由于编写闭包的方式不同，这一点可能不会那么明显。
+    var name="The window";
+
+    var object={
+    name:"My object",
+        getNameFunc:function () {
+        return function () {
+            return this.name;
+        };
+            
+        }
+    };
+
+    console.log(object.getNameFunc()());  //The window
+
+    var object1={
+        name:"My object",
+        getName:function () {
+            var that=this;
+            return function () {
+                return that.name;
+            };
+        }
+    };
+
+    console.log(object1.getName()());
+</script>
+</body>
+</html>

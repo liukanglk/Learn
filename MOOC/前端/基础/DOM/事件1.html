@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件1</title>
+</head>
+<body>
+<div id="ev">
+    <style>
+        #ev{
+            width: 300px;
+            height: 100px;
+            background: red;
+            color: #fff;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+    目标元素
+</div>
+
+<script>
+    //看看捕获过程
+    var ev=document.getElementById('ev');
+        //window
+    window.addEventListener('click',function (ev1) {
+        console.log('window capture');
+    },true);
+    //document
+    document.addEventListener('click',function (ev1) {
+        console.log('document capture');
+    },true);
+    //html
+    document.documentElement.addEventListener('click',function (ev1) {
+        console.log('html capture');
+    },true);
+    //body
+    document.body.addEventListener('click',function (ev1) {
+        console.log('body capture');
+    },true);
+    //ev
+    ev.addEventListener('click',function (ev1) {
+        console.log('ev capture');
+    },true);
+
+
+    //下面是冒泡过程
+
+    //window
+    window.addEventListener('click',function (ev1) {
+        console.log('window capture');
+    },false);
+    //document
+    document.addEventListener('click',function (ev1) {
+        console.log('document capture');
+    },false);
+    //html
+    document.documentElement.addEventListener('click',function (ev1) {
+        console.log('html capture');
+    },false);
+    //body
+    document.body.addEventListener('click',function (ev1) {
+        console.log('body capture');
+    },false);
+    //ev
+    ev.addEventListener('click',function (ev1) {
+        console.log('ev capture');
+    },false);
+
+
+    var eve=new Event('test');
+    ev.addEventListener('test',function () {
+        console.log('tested!');
+    });
+    setTimeout(function () {
+        ev.dispatchEvent(eve);
+    },1000);
+    ev.dispatchEvent(eve);
+</script>
+</body>
+</html>

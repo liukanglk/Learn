@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据绑定语法</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<!--数据绑定的最基础形式是文本差值，使用双大括号语法,内部内容会被对象的message所替换，每当这个属性变化时它也会更新
+也可以只处理单次差值，今后的数据变化就不会更新了
+双括号会解析成文本而不是HTML 若要解析成HTML则需要三括号{{{}}}
+-->
+<span>Message: {{ message}}</span>
+<!--也可以只处理单次差值，今后的数据变化就不会更新了-->
+<span>This will never change {{* message}}</span>
+<!--双括号也可用在HTML特性里-->
+<div id="item-{{id}}"></div>
+<!--放在双括号内的文本称为绑定表达式-->
+
+<!--vue.js允许在表达式后面添加可选的过滤器，以'|'指示-->
+{{message | capitalize}}
+
+<!--指令：是特殊的前面带有v-的特性，指令的值限定为绑定表达式，指令的职责就是当其表达式的值改变时
+把某些特殊行为应用到DOM上-->
+
+
+
+<!--参数:有些指令后面会带一个参数，用冒号隔开如：-->
+<a v-bind:href="url"></a>   <!--缩写--><a :href="url"></a>
+<!--这里的href是参数  另一个例子是v-on指令，它用于监听DOM变化-->
+<a v-on:click="dosomeing"></a>  <!--缩写--><a @click="dosomething"></a>
+
+
+
+</body>
+</html>

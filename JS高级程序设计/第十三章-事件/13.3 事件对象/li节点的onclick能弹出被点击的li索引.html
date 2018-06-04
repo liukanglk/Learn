@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>li节点的onclick能弹出被点击的li索引e</title>
+</head>
+<body>
+<ul id="testUL">
+    <li> index = 0</li>
+    <li> index = 1</li>
+    <li> index = 2</li>
+    <li> index = 3</li>
+</ul>
+<script>
+    let oUl=document.querySelector('#testUL')
+    let aLi=document.querySelectorAll('li');
+    oUl.addEventListener('click',function (ev) {
+        ev=ev || window.event;
+        let tar=ev.target || ev.srcElement;
+        if (tar.nodeName.toLowerCase() =='li'){
+            oUl.removeChild(tar);
+        }
+    })
+</script>
+</body>
+</html>

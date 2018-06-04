@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //取得所有类中包含“current”和“username”的元素，类名的先后顺序无所谓
+    var allUsernameCurrent=document.getElementsByClassName("username current");
+
+    //取得ID为“MyDiv"的i元素中带有类名“selectd”的所有元素
+    var Selected=document.getElementById("MyDiv").getElementsByClassName("selected");
+    /* classList属性
+    add :将给定的字符串值添加到列表中，如果值已经存在，就不添加了
+    remove：从列表中删除给定的字符
+    contains：表示列表中食肉存在给定的值，如果存在返回True  否则False
+    toggle：如果列表中存在给定的值，删除他，如果没有，添加它
+
+    如下例：
+     */
+    //删除“disabled”类
+    div.classList.remove("disabled");
+    // 添加 current类
+    div.classList.add("current");
+    //切换“users”类
+    div.classList.toggle("users");
+
+</script>
+
+</body>
+</html>

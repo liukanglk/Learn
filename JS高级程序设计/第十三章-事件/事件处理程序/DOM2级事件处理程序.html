@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //addEventListener()和removeEventListener()
+    //处理指定和删除事件处理程序的操作
+    //他们都接收三个参数：处理的事件名、作为事件处理程序的函数和一个布尔值
+    //布尔值 参数如果为false 表示在冒泡阶段调用事件处理程序  如果为true表示在捕获阶段调用事件处理程序
+    //例如：要在按钮上为click事件添加事件处理程序
+    var btn=document.getElementById("myBtn");
+    btn.addEventListener("click",function () {
+        alert(this.id);
+    },true);
+    btn.addEventListener("click",function () {
+        alert("hello world");
+    },false);
+    //这里为按钮添加了两个事件处理程序，它们会按照它们的顺序触发，先显示ID，在显示HELLO WORLD
+
+    //通过addEventListener()添加的事件处理程序只能使用removeEventListener()来移除
+</script>
+
+</body>
+</html>

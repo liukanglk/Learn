@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //闭包只能取得包含函数中任何变量的最后一个值 如下面例子
+    function createFunctions() {
+        var result=new Array();
+        for(var i=0;i<10;i++){
+            result [i]=function () {
+              return i;
+            };
+        }
+        return result;
+    }
+var a=createFunctions();
+    console.log(a);
+
+    function createFunctions1() {
+        var result=new Array();
+        for(var i=0;i<10;i++){
+            result [i]=function (num) {
+                return function () {
+                    return num;
+                };
+            }(i);
+        }
+        return result;
+    }
+    var b=createFunctions1();
+    console.log(b);
+
+
+
+</script>
+</body>
+</html>

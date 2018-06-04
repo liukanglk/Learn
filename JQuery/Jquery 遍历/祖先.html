@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>祖先</title>
+    <script type="text/javascript" src="../jquery.js"></script>
+</head>
+<body>
+<script>
+    /*向上遍历DOM
+    * parent():返回被选元素的直接父元素
+    * parents():返回被选元素的所有祖先元素，它一路向上直到文档的跟布鲁html
+    * parentsUntil():返回介于两个给定元素之间的所有祖先元素
+    * */
+$(document).ready(function () {
+  //  $('span').parent().css("borderColor",'red');  //parent()
+ //   $('span').parents().css("borderColor",'red');  //parent()
+      $('span').parentsUntil('div').css("borderColor",'red');  //parentUntil()
+
+})
+
+
+</script>
+<style>
+.parent *{
+    display: block;
+    border: 2px solid lightgrey;
+    color: lightgrey;
+    padding: 5px;
+    margin: 15px;
+}
+</style>
+<div class="parent">
+    <div style="width: 500px;">
+    div曾祖父
+    <ul>
+        ul祖父
+        <li>
+            li直接父
+        <span>span</span>
+        </li>
+    </ul>
+</div>
+
+
+
+<div style="width: 500px;">
+<p>
+    p直接父
+<span>span</span>
+</p>
+
+</div>
+</div>
+
+</body>
+</html>

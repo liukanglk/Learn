@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--输出“click”-->
+<input type="button" value="click me" onclick="alert(event.type)">
+<!--输出“click me ”-->
+<input type="button" value="Click me" onclick="alert(this.value)">
+
+<script>
+    //扩展作用域
+    function () {
+        with(document){
+            with (this){
+                //元素属性值
+            }
+        }
+    }
+
+    //这样的话 以上第二个例子可改为<input type="button" value="Click me" onclick="alert("value)">
+</script>
+</body>
+</html>

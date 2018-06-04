@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>淡入淡出</title>
+    <script type="text/javascript" src="../jquery.js"></script>
+</head>
+<body>
+<script>
+/*    $(document).ready(function () {
+        $("button").click(function () {
+            $('div').fadeIn();
+        });
+        $("#button1").click(function () {
+            $('div').fadeOut();
+
+        });
+
+
+
+    });*/
+    $(document).ready(function () {
+        $("#button2").click(function () {
+            $('div').fadeToggle("slow");
+
+            $("#button2").click(function () {
+                $('div').fadeTo("slow", 0.2);
+
+            });
+        });
+    });
+    //更为简单的办法是使用fadeToggle  他是fadeIn和fadeOut的切换
+
+
+</script>
+</body>
+<style>
+    .blue{
+        background: blue;
+        width: 100px;
+        height: 100px;
+        margin-top: 10px;
+
+    }
+     .yellow{
+        background: yellow;
+         width: 100px;
+         height: 100px;
+         margin-top: 10px;
+
+    }
+     .pink{
+        background: pink;
+         width: 100px;
+         height: 100px;
+         margin-top: 10px;
+
+    }
+
+</style>
+<button id="button">点击这里，三个矩形出现</button>
+<button id="button1">点击这里，三个矩形消失</button>
+<button id="button2">淡入/淡出</button>
+
+<div class="blue"></div>
+<div class="yellow"></div>
+<div class="pink"></div>
+</html>

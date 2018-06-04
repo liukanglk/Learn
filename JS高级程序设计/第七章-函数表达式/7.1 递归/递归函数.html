@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //例子
+    function factorial(num){
+    if(num<=1){
+    return 1;
+    }else{
+  //  return num*factorial(num-1);
+        return num*arguments.callee(num-1);
+    }
+    }
+    //这是经典的递归结成函数 但下列代码会导致出错 注意
+    var anotherFactorial=factorial;
+    factorial=null;
+    alert(anotherFactorial(4));
+    //这样会出错 原因是 以上代码把factorial()函数保存在变量anoutherFactorial中，然后将factorial变量设为NULL
+    //结果指向的函数应用只剩下一个，但在接下来调用anotherFactorial时 由于必须执行factorial，而其却不再是函数，所以会这导致错误。
+    //这种情况下使用arguments.callee可以解决这个问题 ：arguments.callee是一个执行正在执行函数的指针。
+
+</script>
+
+</body>
+</html>

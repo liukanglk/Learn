@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>默认参数</title>
+</head>
+<body>
+<script>
+    {//es5 中默认参数写法
+        function f(x,y,z) {
+            if(y===undefined){
+                y=7;
+            }
+            if(z===undefined){
+                z=42;
+            }
+            return x+y+z;
+        }
+        console.log(f(1));
+    }
+
+
+
+    { //es6中
+        function f(x,y=7,z=42) {
+            return x+y+z;
+        }
+        console.log(f(1));
+        console.log(f(1,3));
+    }
+
+
+    //检查函数的必选参数
+    {
+        function check() {
+            throw  new Error('can\'t be empty')
+        }
+        function f(x=check(),y=7,z=42) {
+            return x+y+z;
+        }
+        console.log(f(1));
+        try{
+            f();
+        }catch (e) {
+            console.log(e);
+
+        }finally {
+
+        }
+
+    }
+
+
+
+
+    { //es5 可变参数
+        function f(x) {
+            console.log(x);
+        }
+        console.log(f(1,2,3)); //赋值了三个参数，这就叫可变参数
+    }
+
+    { //求和运算  es5中要借助arguments
+        function f() {
+            var a=Array.prototype.slice.call(arguments);  //arguments指向的是当前列表
+            var sum=0;
+            a.forEach(function (item) {
+                sum+=item*1;
+            })
+            return sum;
+        }
+        console.log(f(1,2,3,6))
+    }
+
+    { //es6中
+        function f(...a) {   //...a：扩展运算符 a是可变参数的列表
+            var sum=0;
+            a.forEach(item=>{
+                sum+=item*1
+            })
+            return sum;
+
+        }
+        console.log(f(1,2,3,6))
+    }
+
+
+    { //es5中合并数组
+        var params=['hello',true,7];
+        var other=[1,2].concat(params);
+        console.log(other)
+
+    }
+
+
+    { //es6 利用扩展运算符合并数组
+        var params=['hello',true,7];
+        var other=[1,2,...params]
+        console.log(other)
+    }
+</script>
+
+</body>
+</html>

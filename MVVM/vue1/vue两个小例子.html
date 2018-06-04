@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<!--这是view-->
+<div id="example-1">
+    Hello {{name}}
+</div>
+<br/>
+
+<div id="example-2">
+    <!--
+    v-if 特性被称为指令。指令带有前缀v-  他们会对绑定的目标元素添加响应式的特殊行为
+     -->
+    <p v-if="greeting">Hello!</p>
+</div>
+<script>
+    // 这是model
+    var exampleData={
+        name:'Liukang'
+    }
+
+    // 这是viewmodel
+    var exampleVM=new Vue({
+        el:'#example-1',
+        data:exampleData
+    })
+ /* new Vue({
+      el:'#example-1',
+      data:{
+          name:'liukang!'
+      }
+  })
+*/
+
+
+ var exampleVM2=new Vue({
+     el:'#example-2',
+     data:{
+         greeting:true,
+     }
+ })
+
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //Object.create()规范了原型继承。这个方法接收两个参数，一个用作新对象原型的对象，和（可选）一个为新对象定义额外属性的对象。
+    var person={
+        name:"LK",
+        friends:["Lily","Lucy","Jack"]
+    };
+
+    var anotherPerson=Object.create(person);
+    anotherPerson.name="SW";
+    anotherPerson.friends.push("John");
+
+    var yetAnotherPerson=Object.create(person);
+    yetAnotherPerson.name="JXY";
+    yetAnotherPerson.friends.push("Joe");
+
+    console.log(person.name);
+    console.log(person.friends);
+    console.log(anotherPerson.name);
+    console.log(yetAnotherPerson.name);
+    console.log(yetAnotherPerson.friends);
+</script>
+</body>
+</html>

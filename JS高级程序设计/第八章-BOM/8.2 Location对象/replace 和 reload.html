@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Enjoy this page,you won't be come back</p>
+<script>
+    //replace(): 只接受一个参数，即要导航的URL，在调用replace后，用户不能回到前一个页面
+    setTimeout(function () {
+        location.replace("https://www.baidu.com/");
+    },3000);
+
+    //reload:重新加载当前显示的页面，如果不传递任何参数，页面就会以最优的方式重新加载
+     location.reload(true); //从服务器重新加载
+
+</script>
+
+</body>
+</html>

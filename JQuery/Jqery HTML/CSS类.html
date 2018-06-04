@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS</title>
+    <script type="text/javascript" src="../jquery.js"></script>
+    <style>
+        .important{
+            font-weight: bold;
+            font-size: xx-large;
+        }
+        .blue{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<script>
+    /*JQuery操作CSS
+    * addClass():向被选元素添加类
+    * removeClass():从被选元素删除类
+    * toggleClass():对被选元素进行添加、删除切换操作
+    * css():设置或返回样式属性
+    *
+    * */
+
+
+    $(document).ready(function () {
+        $('#button1').click(function () {
+            $('h1,h2').addClass('important blue');  //在多个标签添加多个类的方法
+            $('p').addClass('blue');
+
+        });
+
+        $('#button2').click(function () {
+            $('h1,h2').removeClass('important blue');  //在多个标签删除多个类的方法
+            $('p').removeClass('blue');
+
+        });
+        $('#button3').click(function () {
+            $('h1,h2').toggleClass('important blue');  //在多个标签添加、删除多个类的方法 toggleClass
+            $('p').toggleClass('blue');
+
+        });
+
+
+
+
+
+    });
+</script>
+
+
+
+<h1>标题 1</h1>
+<h2>标题 2</h2>
+<p>这是一个段落。</p>
+<p>这是另一个段落。</p>
+<div>这是非常重要的文本！</div>
+<br>
+<button id="button1">向元素添加类</button>
+<button id="button2">向元素删除类</button>
+<button id="button3">向元素删除/添加类</button>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类型转换</title>
+</head>
+<body>
+<!--类型转换
+显示类型转换
+隐式类型转换-->
+
+<!--
+显示类型转换
+Number
+String
+Boolean-->
+<script>
+
+    // Number
+    var a={a:1};
+    console.log('a',Number({a:1}));
+
+//    String
+    var b={
+        b:1,
+    toString:function () {
+        return{
+            b:2,
+        };
+    },
+        valueOf:function ( ) {
+            return 'b';
+        }
+
+    };
+    console.log('b',String({b:1}));
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    location.assign("https://www.baidu.com/"); //立刻打开新的URL 并在浏览器的历史记录中生成一条记录
+    //下面的例子 通过将hash search hostname pathname 和port属性设置为新值来改变URL
+
+    //假设初始URL为 http://www.wrox.com/wileyCDA/
+    //将URL修改为http://www.wrox.com/wileyCDA/#section1
+    location.hash="#section1";
+    //将URL修改为http://www.wrox.com/wileyCDA/?qjavascript
+    location.search="?q=javascript";
+    //将URL修改为http://www.yahoo.com/wileyCDA/
+    location.hostname="www.yahoo.com";
+    //将URL修改为http://www.wrox.com/mydir/
+    location.pathname="mydir";
+    //将URL修改为http://www.wrox.com:8080/wileyCDA/
+    location.port=8080;
+</script>
+
+</body>
+</html>

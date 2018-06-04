@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>valueof</title>
+</head>
+<body>
+<script>
+    Array.prototype.valueOf=function () {
+        return this.join(',');
+    };
+
+    var flat=function () {
+        return arr+'';
+    }
+
+    var arr=['a',['b','c'],2,['d','e','f'],'g',3,4];
+    console.log(flat(arr));
+</script>
+</body>
+</html>

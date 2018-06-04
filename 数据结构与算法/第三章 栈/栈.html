@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*后入先出*/
+    function Stack() {
+        var stack=[];
+      this.push=function (element) {
+         return stack.push(element);
+      };
+      this.pop=function () {
+         return stack.pop()
+      };
+      this.peek=function () {
+          return stack[stack.length-1];
+      };
+      this.isEmpty=function () {
+      return stack.length===0;
+      };
+      this.clear=function () {
+           stack=[];
+      };
+      this.size=function () {
+          return stack.length;
+      };
+
+      this.print=function () {
+          console.log(stack.toString());
+      };
+    }
+
+
+    var s=new Stack();
+    console.log(s.isEmpty());
+    s.push(1);
+    s.push(2);
+    s.print();
+    console.log(s.peek());
+    s.push(11);
+    console.log(s.size());
+    console.log(s.isEmpty());
+    s.pop();
+    s.pop();
+    console.log(s.size());
+    s.print();
+
+</script>
+</body>
+</html>

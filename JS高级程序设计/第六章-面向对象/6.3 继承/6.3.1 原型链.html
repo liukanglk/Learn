@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //JS只支持实现继承
+    function SuperType() {
+        this.property=true;
+    }
+    SuperType.prototype.getSuperValue=function () {
+        return this.property;
+    };
+    function SubType(){
+        this.subproperty=false;
+    }
+
+    //继承了SuperTyper
+    SubType.prototype=new SuperType();
+    SubType.prototype.getSubValue=function () {
+        return this.subproperty;
+    };
+
+    var instance=new SubType();
+
+    console.log(instance.getSuperValue());
+    console.log(instance.getSubValue());
+</script>
+</body>
+</html>

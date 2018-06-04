@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>callback</title>
+    <script type="text/javascript" src="../jquery.js"></script>
+</head>
+<body>
+
+<!--callback函数 是在动画全部完成后执行：注意这两个按钮的区别-->
+
+<script>
+    //hide函数中第二个为callback
+$(document).ready(function  () {
+    $('.callback').click(function () {
+        $('p').hide(1000,function () {
+            alert('call back');
+        });
+    });
+   $('.nocallback').click(function () {
+       $('p').hide(1000);
+       alert('nocall back');
+   });
+});
+</script>
+<button class="callback">callback</button>
+<button class="nocallback">nocallback</button>
+<p>去吧 皮卡丘</p>
+<p>去吧 皮卡丘</p>
+</body>
+</html>

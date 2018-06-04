@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>错误监控1</title>
+    <script>
+        window.addEventListener('error',function (e) {
+            console.log('捕获',e);
+        },true); //捕获到错误
+
+        window.addEventListener('error',function (e) {
+            console.log('冒泡',e);
+        },false); //无效
+    </script>
+</head>
+<body>
+<script src="//baidu.js"></script>
+
+
+<script>
+    (new Image()).src='http://baidu.com/testlk';
+</script>
+</body>
+</html>

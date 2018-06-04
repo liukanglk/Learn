@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //页面视口的大小
+    var pageWidth=window.innerWidth,
+        pageHeight=window.innerHeight;
+    if(typeof pageWidth!="numbei"){
+        if(document.compatMode=="CSS1Compat"){
+            pageWidth=document.documentElement.clientWidth;
+            pageHeight=document.documentElement.clientHeight;
+        }else{
+            pageWidth=document.body.clientWidth;
+            pageHeight=document.body.clientHeight;
+        }
+    }
+    alert(pageWidth);
+    alert(pageHeight);
+</script>
+
+</body>
+</html>

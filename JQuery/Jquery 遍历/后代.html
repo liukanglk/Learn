@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后代子孙</title>
+    <script type="text/javascript" src="../jquery.js"></script>
+</head>
+<body>
+<script>
+    /*向下遍历DOM
+    * children():返回被选元素的所有直接子元素
+    * find():返回被选的后代元素，一路向下知道找到最后一个后代
+    * */
+    $(document).ready(function () {
+      //  $('div').children().css('borderColor','red');
+
+        //还可以找单独的
+       // $('div').children('#p1').css('borderColor','red');
+
+
+        //span
+        $('div').find('span').css('borderColor','red');
+    })
+</script>
+<style>
+    .descendants *{
+        border: 2px solid lightgrey;
+        color: lightgrey;
+        margin: 15px;
+        padding: 5px;
+        display: block;
+
+    }
+</style>
+<div class="descendants" style="width:500px;">div (当前元素)
+    <p id="p1">p (子)
+        <span>span (孙)</span>
+    </p>
+    <p id="p2">p (child)
+        <span>span (孙)</span>
+    </p>
+</div>
+
+</body>
+</html>

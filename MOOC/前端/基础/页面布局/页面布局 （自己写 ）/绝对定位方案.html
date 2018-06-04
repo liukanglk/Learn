@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绝对定位</title>
+    <style>
+        html *{
+            margin: 0;
+            padding: 0;
+        }
+        .absolute div{
+            min-height: 200px;
+        }
+    </style>
+</head>
+<body>
+<style>
+    .absolute div{
+        position: absolute;
+    }
+    .left{
+        background: red;
+        width: 300px;
+
+
+    }
+    .right{
+        background: blue;
+        width: 300px;
+        right: 0;
+
+
+    }
+    .center{
+        background: yellow;
+        left: 300px;
+        right: 300px;
+    }
+</style>
+
+<article class="absolute">
+<div class="left">左边</div>
+
+<div class="right">右边</div>
+<div class="center">
+    <h1>绝对定位方案解决</h1>
+    这是绝对定位方案的中间部分
+    这是绝对定位方案的中间部分
+    这是绝对定位方案的中间部分
+    这是绝对定位方案的中间部分
+    这是绝对定位方案的中间部分
+    这是绝对定位方案的中间部分
+    这是绝对定位方案的中间部分
+    这是绝对定位方案的中间部分
+
+</div>
+</article>
+</body>
+</html>

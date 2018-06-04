@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--上高度固定，下自适应 -->
+<section class="layout flex">
+    <style>
+        .layout.flex{
+        height: 100%;
+
+        }
+        .layout.flex .top-below{
+
+        }
+
+        .layout.flex .top{
+
+            background: red;
+            height: 100px;
+
+        }
+        .layout.flex .below{
+            height: 100%;
+            background-color: yellow;
+        }
+    </style>
+    <article class="top-below">
+        <div class="top"></div>
+        <div class="below">
+            <h1>flex</h1>
+            下部分
+        </div>
+
+    </article>
+</section>
+</body>
+</html>

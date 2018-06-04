@@ -1,0 +1,52 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript">
+        //隐藏当前的HTML元素
+    $(document).ready(function(){
+        $('button').click(function () {
+            $(this).hide();
+
+        });
+        });
+
+    //隐藏/显示标签为h2的元素
+        $(document).ready(function () {
+           $('button').click(function(){
+               $('h2').hide();
+           }) ;
+        });
+        $(document).ready(function () {
+            $('button').click(function(){
+                $('h2').show();
+            }) ;
+        });
+
+        //隐藏id为demo的元素
+        $(document).ready(function () {
+            $('button').click(function () {
+                $('#demo').hide();
+            });
+        });
+
+        //点击隐藏p元素
+        $(document).ready(function () {
+            $('p').click(function () {
+                $(this).hide('slow');   //slow:消失样式
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+<h2>This is a heading</h2>
+<p id="demo">This is a paragraph.</p>
+<p>This is another paragraph.</p>
+<p>点击我，我就没</p>
+<p>点击我，我也没</p>
+<button type="button">Click me</button>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面布局作业</title>
+    <style>
+        html *{
+            padding: 0;
+            margin: 0;
+        }
+        .layout article div{
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+<!--两栏布局
+    左宽度固定，右自适应
+    右宽度固定，左自适应
+    上高度固定，下自适应
+    下高度固定，上自适应-->
+
+
+<!--左宽度固定，右自适应 -->
+<section class="layout float">
+    <style>
+
+        .layout.float .left{
+            float: left;
+            width: 500px;
+            background: red;
+
+        }
+        .layout.float .right{
+            width: auto;
+            background: yellow;
+        }
+    </style>
+    <article class="left-right">
+        <div class="left"></div>
+        <div class="right">
+            <h1>float解决方案</h1>
+            这是右边部分
+        </div>
+    </article>
+</section>
+
+<!--右宽度固定，左自适应 -->
+<section class="layout absolute">
+    <style>
+
+        .layout{
+            margin-top: 10px;
+        }
+
+        .layout.absolute .left{
+            position: absolute;
+            left: 0;
+            width: 500px;
+            background-color: red;
+
+        }
+        .layout.absolute .right{
+            position: absolute;
+            left: 500px;
+            right: 0;
+            background-color: yellow;
+        }
+    </style>
+    <article class="left-right">
+        <div class="left"></div>
+        <div class="right">
+            <h1>绝对定位</h1>
+            右侧部分
+        </div>
+
+    </article>
+</section>
+
+
+
+</body>
+</html>

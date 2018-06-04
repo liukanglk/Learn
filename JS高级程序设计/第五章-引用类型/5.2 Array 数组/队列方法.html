@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var colors=new Array();
+    colors.push("red","blue");
+    document.write(colors[1]+"<br/>");
+
+    var count=colors.push("green");
+    document.write(count+"<br/>");
+    //shift(): 移除数组的第一项
+    var item=colors.shift();
+    document.write(item+"<br/>");
+    document.write(colors.length+"<br/>");
+    document.write(colors[0]+"<br/>");
+
+    //unshift();从队首增加元素
+    colors.unshift("pink","yellow");
+    document.write(colors[0]+"<br/>");
+    document.write(colors.length+"<br/>");
+
+</script>
+</body>
+</html>

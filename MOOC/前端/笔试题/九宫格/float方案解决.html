@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>float</title>
+</head>
+<body>
+<section class="one-nine-float">
+    <style>
+ /*<!--注意，这只是一种方案，按语义化来说 乱用div并不好 -->*/
+        .one-nine-float{
+            width: 300px;
+            height: 300px;
+            padding: 100px;
+        }
+        .one-nine-float div{
+            border:3px solid black;
+            width: 100px;
+            height: 100px;
+            float: left;
+            box-sizing: border-box;
+            margin-top:-3px;
+            margin-left:-3px;
+            position: relative;
+        }
+        .one-nine-float div:hover{
+            border-color: red;
+            z-index: 1;
+        }
+
+
+    </style>
+    <div class="one">1</div>
+    <div class="two">2</div>
+    <div class="three">3</div>
+    <div class="four">4</div>
+    <div class="five">5</div>
+    <div class="six">6</div>
+    <div class="seven">7</div>
+    <div class="eight">8</div>
+    <div class="nine">9</div>
+</section>
+</body>
+</html>

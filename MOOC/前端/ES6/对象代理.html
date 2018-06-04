@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象代理</title>
+</head>
+<body>
+<script>
+    // 创建一个数据
+    {
+        //es3中数据保护
+        var Person=function () {
+            var data={
+                name:'es3',
+                sex:'male',
+                age:15,
+            }
+            //读取
+            this.get=function (key) {
+                return data[key];
+            }
+            this.set=function (key,value) {
+                if(key!=='sex'){
+                    data[key]=value
+                }
+            }
+
+        }
+        //声明一个实例
+        const person=new Person();
+        // 读取
+        console.table({
+            name:person.get('name'),
+            sex:person.get('sex'),
+            age:person.get('age')
+        })
+        //修改
+        person.set('name','es31');
+        console.table({
+            name:person.get('name'),
+            sex:person.get('sex'),
+            age:person.get('age')
+        })
+        person.set('sex','feamal');
+        console.table({
+            name:person.get('name'),
+            sex:person.get('sex'),  //sex未改变
+            age:person.get('age')
+        })
+
+
+    }
+
+    {
+        //es5中 保护数据
+        var Person={
+            name:'es5',
+            age:15
+        };
+        Object.defineProperty(Person,'sex',{
+            writable:false, //只读
+            value:'male'
+        });
+        console.table({
+            name:Person.name,
+            age:Person.age,
+            sex:Person.sex
+        })
+        Person.sex='feamal';
+        console.table({
+            name:Person.name,
+            age:Person.age,
+            sex:Person.sex
+        })
+    }
+
+
+
+    {//es6
+        let Person={
+            name:'es6',
+            sex:'male',
+            age:15
+        };
+        let person=new Proxy(Person,{
+            get(target,key){
+                return target[key];
+            },
+            set(target,key,value){
+                if(key!=='sex'){
+                    target[key]=value;
+                }
+            }
+
+        });
+        console.table({
+            name:person.name,
+            age:person.age,
+            sex:person.sex
+        })
+     person.sex='lk'
+        console.log(person.sex)
+
+    }
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

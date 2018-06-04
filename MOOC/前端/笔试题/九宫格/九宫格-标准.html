@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>视频</title>
+    <link rel="stylesheet" href="./reset.css">
+</head>
+<body>
+<style>
+    /*第一步：写出初步模型*/
+    body{
+        padding: 50px;
+    }
+    .grid{
+        width: 300px;
+        display:flex;
+        flex-wrap: wrap;
+
+    }
+    .grid li{
+        border:2px solid #ccc;
+        list-style-type: none;  /*去除li前面的点*/
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        box-sizing: border-box;       /*第二步 使宽和高的计算包括border部分，否则会出现错误*/
+        margin-left:-2px ;
+        margin-top: -2px;               /*第三步：用负边距来解决单元格重合问题*/
+    }
+
+    .grid li:nth-child(3n+1){
+    margin-left: 0px;
+
+        /*  改变最左边的三个向左移了-2px*/
+    }
+    .grid li:nth-child(1) {
+        margin-top: 0px;
+    }
+    .grid li:nth-child(2) {
+        margin-top: 0px;
+    }
+    .grid li:nth-child(3) {
+        margin-top: 0px;
+    }
+    .grid li:hover{
+        border-color: red;  /*只写这个会出现问题，红框会被别的单元格遮挡*/
+        z-index: 2;    /*弥补上述问题*/
+    }
+</style>
+
+<!--这种题的考察方面
+（1）flex布局
+（2）box-sizing
+（3）css选择器
+（4）z-index
+（5）负边距
+-->
+<ul class="grid">
+    <!--用ul li是为了语义化-->
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+</ul>
+</body>
+</html>

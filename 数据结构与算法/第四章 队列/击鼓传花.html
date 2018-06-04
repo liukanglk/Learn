@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Queue() {
+        var items = [];
+        this.enqueue = function (element) {
+            items.push(element);
+        } //功能：向队尾添加新的项
+        this.dequeue = function () {
+            return items.shift();
+        } //功能：移除队列的第一项 并返回
+        this.front = function () {
+            return items[0];
+        }//功能：返回最前面的项
+        this.isEmpty = function () {
+            return items.length == 0;
+        }//功能：验证队列是否为空
+        this.size = function () {
+            return items.length;
+        }
+        this.print = function () {
+            console.log(items.toString());
+        }
+    };
+    function hotPotato(nameList,num) {
+       var queue =new Queue();
+        for(var i=0;i<nameList.length;i++){
+            queue.enqueue(nameList[i]); //把人员名单加入队列
+        }
+
+        var eliminated='';
+        while(queue.size()>1){
+            for(var i=0;i<num;i++){
+                queue.enqueue(queue.dequeue());  //从队列开头移除一项并加入队尾
+            }
+            eliminated=queue.dequeue(); //一旦传递次数到达给定的数字，拿着花的人就被淘汰了。
+            console.log(eliminated+'在击鼓传花中被淘汰');
+        }
+        return queue.dequeue();
+    }
+    var names=['John','Jack','Rose','Linda','Lina'];
+    var winner=hotPotato(names,7);
+    console.log("胜利者是： "+winner);
+
+
+</script>
+
+</body>
+</html>

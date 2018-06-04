@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>流体浮动布局</title>
+    <style>
+        html *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!--流体浮动布局
+        规格：当视窗变化时跟着变化
+        采用：浮动布局
+         兼容：兼容当前主流浏览器-->
+
+<!--流体浮动两列布局-->
+    <style>
+        .header{
+            height: 50px;
+
+            border: 1px solid black;
+            background: #ccc;
+            font-size: 18px;
+            text-align: center;
+            line-height: 50px;
+            margin-bottom: 10px;
+
+        }
+         .nav{
+            border: 1px solid black;
+             background: yellow;
+             float: left;
+             height: 300px;
+             width: 20%;
+            margin-bottom: 10px;
+             text-align: center;
+
+
+        }
+         .nav ul{
+             width: 50px;
+             margin: 0 auto;
+             background: #ccc;
+         }
+        .nav1{
+            border: 1px solid black;
+             background: yellow;
+             float: right;
+             height: 300px;
+             width: 20%;
+
+            text-align: center;
+
+
+        }
+        .nav1 ul{
+
+            background: #ccc;
+            width: 50px;
+            margin: 0 auto;
+
+        }
+         .main{
+            border: 1px solid black;
+             background: red;
+            float: left;
+             height: 300px;
+             width: 55%;
+             margin-bottom: 10px;
+             margin-left: 2%;
+
+        }
+         .footer{
+            border: 1px solid black;
+             background: #ccc;
+             clear: both;
+             text-align: center;
+
+        }
+
+    </style>
+    <div class="header">
+        这是标题
+    </div>
+    <div class="nav">
+        这是左目录
+        <ul>
+
+            <li>体育</li>
+            <li>娱乐</li>
+            <li>政治</li>
+            <li>头条</li>
+            <li>图片</li>
+        </ul>
+    </div>
+
+    <div class="main">
+        这是内容
+        <p>古人云：“等闲识得东风面，万紫千红总是春。”假如四季是美丽动人的画，那春天便是五颜六色的色彩画;假如四季是一本生动有趣的书，
+            那春便是书中最精彩的一段.</p>
+        <p>假如四季是一支舞，那春便是悠扬动听的歌声;假如四季是一首歌，那春便是一个个欢快的音符。
+
+            春，是一朵骄傲的花朵盛开在大地上。</p>
+    </div>
+
+    <div class="nav1">
+        这是右目录
+        <ul>
+
+            <li>体育</li>
+            <li>娱乐</li>
+            <li>政治</li>
+            <li>头条</li>
+            <li>图片</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        版权所有，违反必究
+    </div>
+
+</body>
+</html>

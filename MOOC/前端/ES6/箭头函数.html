@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>箭头函数</title>
+</head>
+<body>
+<script>
+    {
+        //es5中遍历函数
+        var evens = [1, 2, 3, 4, 5];
+        var odds = evens.map(function (v) {
+            return v + 1;
+        })
+        console.log(evens,odds);
+    }
+
+
+    // es6中
+    {
+        let evens=[1,2,3,4,5];
+        let odds=evens.map(v=>v+1);
+        console.log(evens,odds);
+    }
+
+
+    {//es5
+        var factory=function () {
+            this.a='a';
+            this.b='b';
+            this.c={
+                a:'a+',
+                b:function () {
+                    return this.a  //this的指向是该函数被调用的对象  也就是b是c调用的  所以this指向的c.a
+                }
+            }
+
+        }
+        console.log(new factory().c.b());  //a+
+    }
+
+
+    {//es6
+        var factory=function () {
+            this.a='a';
+            this.b='b';
+            this.c={
+                a:'a+',
+                b:()=> {
+                      return this.a;  //箭头函数的this的指向是定义时this的指向
+                    //b在定义这个函数的时候 this指向的函数体的中的this 也就是this.b
+                    //this.b 的this指向的是构造函数的实例 也就是factory的实例也就是this.a
+                }
+            }
+
+        }
+        console.log(new factory().c.b());  //a
+
+
+    }
+</script>
+</body>
+</html>

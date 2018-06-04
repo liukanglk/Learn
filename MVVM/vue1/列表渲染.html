@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表渲染</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<!--v-for:基于一个数组渲染一个列表，这个指令使用特殊的语法，形式为item in items
+items是数据数组 item是当前数组元素的别名-->
+<ul id="example-1">
+    <li v-for="item in items">
+        <!--{{item.message}}-->
+
+        <!--$index：为当前数组的索引-->
+        {{ parentMessage }} - {{ $index }} - {{ item.message }}
+    </li>
+</ul>
+
+<script>
+    var example1=new Vue({
+        el:'#example-1',
+        data:{
+            items:[
+                {message:'Foo'},
+                {message:'Bar'}
+            ]
+
+
+        },
+        watch:{
+          items:function () {
+              smoothScroll.animateScroll(null,'#example-1')
+          }
+        }
+    })
+</script>
+</body>
+</html>

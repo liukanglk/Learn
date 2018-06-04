@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--json对象有两个方法 （1）stringify() （2）parse()-->
+<!--这两种方法分别用于把js对象序列化为json字符串 和把json字符串解析为原生js值-->
+
+<script>
+    var book={
+        title:"profession javascript",
+        authors:[
+            "LK"
+        ],
+        edition:3,
+        year:2011
+    };
+
+    var jsonText=JSON.stringify(book);
+    console.log(jsonText);
+
+    //JSON.stringify()除了接收第一个参数外 还可以接收两个参数，第一个参数是过滤器，
+    // 第二个参数是一个选项，表示是否在JSON字符冲中保留缩进
+    //过滤结果
+     var jsonText1=JSON.stringify(book,["title","edition"]);
+     console.log(jsonText1);
+
+     var jsonText2=JSON.stringify(book,function (key,value) {
+       switch (key) {
+           case "authors":
+               return value.join(",");
+           case "years":
+               return 5000;
+           case "edition":
+               return undefined;
+           default:
+               return value;
+       }
+     });
+
+     console.log(jsonText2);
+
+
+     //字符串缩进
+    // JSON.stringify()第三个参数是用于控制结果中的缩进和空白符 ，如果这个参数是一个数值，那它表示的是每个级别缩进的空格符
+    var jsonText3=JSON.stringify(book,null,7);
+    console.log(jsonText3);
+    //如果这个参数是一个字符串而非数值 ，那这个字符串会被用作缩进字符
+    var jsonText4=JSON.stringify(book,null,"- - -");
+    console.log(jsonText4);
+
+
+</script>
+</body>
+</html>

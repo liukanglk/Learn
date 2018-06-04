@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<div id="example-1" class="demo">
+<span>Message is: {{ message }}</span>
+<br>
+    <!--用v-model指令在表单控件元素上创建数据双向绑定，根据控件类型，它自动选取正确的方法更新元素-->
+<input type="text" v-model="message" placeholder="edit me">
+</div>
+
+
+
+<div id="example-2">
+<input type="checkbox" id="checkbox" v-model="checked">
+<label for="checkbox">{{ checked }}</label>
+</div>
+
+
+
+<div id="example-3" class="demo">
+    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+    <label for="jack">Jack</label>
+    <input type="checkbox" id="john" value="John" v-model="checkedNames">
+    <label for="john">John</label>
+    <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+    <label for="mike">Mike</label>
+    <br>
+    <span>Checked names: {{ checkedNames | json }}</span>
+</div>
+<script>
+
+    {
+        var vm=new Vue({
+            el:'#example-1',
+            data:{
+                message:''
+            }
+        })
+    }
+
+    {
+        var vm=new Vue({
+            el:'#example-2',
+            data:{
+               checked:false
+            }
+        })
+    }
+
+
+    {
+        new Vue({
+            el: '#example-3',
+            data: {
+                checkedNames: []
+            }
+        })
+
+    }
+</script>
+</body>
+
+</html>

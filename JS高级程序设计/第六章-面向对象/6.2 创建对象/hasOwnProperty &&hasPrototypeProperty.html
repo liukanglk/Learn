@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //hasOwnProperty()是检测属性是否存在于实例中，不过二者结果相反。 eg：
+    function  Person() {
+        Person.prototype.name="LK";
+        Person.prototype.age=18;
+        Person.prototype.job="IT";
+        Person.prototype.sayName=function () {
+            console.log(this.name);
+        };
+    }
+
+    var person1=new Person();
+    var person2=new Person();
+
+    console.log(person1.hasOwnProperty("name"));  //false 因为来自原型
+
+    person1.name="SW";
+    console.log(person1.name);
+    console.log(person1.hasOwnProperty("name"));  //true : 因为来自实例
+
+    console.log(person2.name);
+    console.log(person2.hasOwnProperty("name"));  //false 因为来自原型
+
+    delete person1.name;
+    console.log(person1.name);
+    console.log(person1.hasOwnProperty("name"));  //true : 因为来自原型
+
+</script>
+</body>
+</html>

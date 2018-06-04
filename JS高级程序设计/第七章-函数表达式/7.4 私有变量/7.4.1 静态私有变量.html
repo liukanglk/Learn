@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //通过在私有作用域中定义私有变量或函数，同时也可以创建特权方法
+    (function () {
+        //私有变量和私有函数
+        var privateVariable=10;
+
+        function privateFunction() {
+            return false;
+        }
+        //构造函数
+        MyObject=function () {
+            
+        };
+
+        //公有/特权方法
+        MyObject.prototype.publicMethod=function () {
+            privateVariable++;
+            return privateFunction();
+        };
+    })();
+
+    //以下为实例：
+
+    (function () {
+        var name="";
+
+        Person=function (value) {
+            name=value;
+        };
+        Person.prototype.getName=function () {
+            return name;
+        };
+        Person.prototype.setName=function (value) {
+            name=value;
+        };
+
+    })();
+
+    var person1=new Person("LK");
+    console.log(person1.getName());
+    person1.setName("LK1");
+    console.log(person1.getName());
+
+    var person2=new Person("Michal");
+
+    console.log(person1.getName());
+    console.log(person2.getName());
+
+    //这个例子中的Person构造函数与getName()和setName()方法一样，都有权访问私有变量name。在这种情况下，
+    //变量name就变成了一个静态的、由所有实例共享的阿胡子那个，在一个实力上调用setName会影响所有的实例。
+
+</script>
+</body>
+</html>

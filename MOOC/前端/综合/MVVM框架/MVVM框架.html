@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MVVM</title>
+</head>
+<body>
+<script>
+    var obj1={};
+    var descriptor=Object.create(null); //没有继承的属性
+    //默认没有 Enumerable Configurable Writable
+    descriptor.value='static';
+    Object.defineProperty(obj1,'key',descriptor);
+    console.log(obj1);  //不能遍历
+
+
+    //显示的来用
+    var obj2={};
+    Object.defineProperty(obj2,'key',{
+        enumerable:true,  //默认为false  true 可以遍历
+        configurable:false,
+        writable:false,
+        value:'static'
+    });
+     console.log(obj2);
+
+</script>
+</body>
+</html>

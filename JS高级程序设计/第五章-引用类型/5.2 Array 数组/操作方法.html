@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var  color1=["red","blue","link","pumy","dsre","dss"];
+    //concat():基于一个数组 创建一个新数组 并将新元素与原来的元素连接起来
+    var  color2=color1.concat("green","pink");
+    document.write(color2+"<br/>");
+
+    //slice():基于当前数组的一或多各项创建一个新数组 slice（）可接受一或两个参数，及返回项的起始和结束位置
+    var color3=color1.slice(1);
+    document.write(color3+"<br/>");
+    var color4=color1.slice(1,5);
+    document.write(color4+"<br/>");
+    /*
+    splice():向数组中部插入项。方式主要有三种:删除、插入、替换
+    删除：splice(0.2):删除数组中的前两项
+    插入:splice(2,0,"red","green")  其中“0”代表要删除的项数  本公式代表从数组的第2个位置插入两个字符串
+    替换：splice(2,1,"red","green") 删除数组位置2的元素，并在该位置插入两个字符串
+     */
+    var color5=color1.splice(1,4); //删除数组中1-4元素
+    document.write(color5+"<br/>");
+    var  colors1=["red","blue","link","pumy","dsre","dss"];
+    colors1.splice(2,0,"peods","dsadaop");
+    document.write(colors1+"<br/>");
+    var  colors2=["red","blue","link","pumy","dsre","dss"];
+    colors2.splice(2,2,"dwe","2er");
+    document.write(colors2+"<br/>");
+</script>
+
+</body>
+</html>

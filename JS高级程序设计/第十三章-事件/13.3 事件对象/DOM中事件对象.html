@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="myBtn">A</p>
+<p id="myHan">B</p>
+<script>
+    var btn=document.getElementById("myBtn");
+    btn.onclick=function (event) {
+        alert(event.type);
+    };
+    btn.addEventListener("click",function (event) {
+        alert(event.type);
+    },false);
+
+var hander=function (event) {
+    switch(event.type) {
+        case "click":
+            alert("Clicked");
+            break;
+        case "mouseover":
+            event.target.style.backgroundColor="red";
+            break;
+        case "mouseout":
+            event.target.style.backgroundColor="blue";
+            break;
+    }
+}
+btn.onclick=hander;
+btn.onmouseover=hander;
+btn.onmouseout=hander;
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+function jiecheng(num){
+    if(num<=1){
+        return 1;
+    }
+    /*此方法比较混乱，故采用下面方法 arguments.callee
+    else{
+        return num*jiecheng(num-1);
+    }*/
+    else{
+        return num*arguments.callee(num-1);
+    }
+};
+alert(jiecheng(4));
+document.write(jiecheng(4));
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>尺寸</title>
+    <script type="text/javascript" src="../jquery.js"></script>
+</head>
+<body>
+<script>
+    /*width():设置或返回元素的宽度（不包括内边距，边框，外边距）
+    * height():设置或返回元素的高度（不包括内边距，边框，外边距）
+    * innerWidth():设置或返回元素的宽度（包括内边距）
+    * innerHeight():设置或返回元素的高度（包括内边距）
+    * outerWidth():设置或返回元素的宽度（包括内边距，边框）
+    * outerHeight():设置或返回元素的高度（包括内边距，边框）
+    * outerWidth(true):设置或返回元素的宽度（包括内边距，边框，外边距）
+    * outerHeight(true):设置或返回元素的高度（包括内边距，边框，外边距）
+    * */
+$(document).ready(function () {
+    $('#button1').click(function () {
+        var txt='';
+        txt+="Width of div: "+$("#div1").width()+"</br>";
+        txt+="Hight of div:"+$("#div1").height();
+        $('#div1').html(txt);
+    });
+     $('#button2').click(function () {
+        var txt='';
+        txt+="innerWidth of div: "+$("#div1").innerWidth()+"</br>";
+        txt+="innerHight of div:"+$("#div1").innerHeight();
+        $('#div1').html(txt);
+    });
+     $('#button3').click(function () {
+        var txt='';
+        txt+="outerWidth of div: "+$("#div1").outerWidth()+"</br>";
+        txt+="outerHight of div:"+$("#div1").outerHeight();
+        $('#div1').html(txt);
+    });
+     $('#button4').click(function () {
+        var txt='';
+        txt+="outerWidth(true) of div: "+$("#div1").outerWidth(true)+"</br>";
+        txt+="outerHight(true) of div:"+$("#div1").outerHeight(true);
+        $('#div1').html(txt);
+    });
+
+
+
+
+});
+
+</script>
+<style>
+    #div1{
+    height:100px;
+        width:300px;
+        padding:10px;
+        margin:3px;
+        border:1px solid blue;
+        background-color:lightblue
+    }
+</style>
+
+<div id="div1" ></div>
+<br>
+<button id="button1">width height</button>  </br>
+<button id="button2">innerWidth innerHeight</button>  </br>
+<button id="button3">outerWidth outerHeight</button>  </br>
+<button id="button4">outerWidth(true) outerWidth(true)</button>  </br>
+<p>width() - 返回元素的宽度。</p>
+<p>height() - 返回元素的高度。</p>
+</body>
+</html>

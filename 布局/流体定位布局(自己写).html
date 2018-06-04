@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>流体定位布局</title>
+    <style>
+        html *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!--流体浮动布局
+        规格：当视窗变化时跟着变化
+        采用：浮动布局
+         兼容：兼容当前主流浏览器-->
+
+<!--流体定位两列布局-->
+    <style>
+        .header{
+            height: 60px;
+            border: 1px solid black;
+            background: #cccccc;
+            line-height: 60px;
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 10px;
+            width: 1200px;
+        }
+        .nav{
+            border: 1px solid black;
+            background: yellow;
+            height: 300px;
+            width: 200px;
+            position: absolute;
+
+        }
+        .nav1{
+            border: 1px solid black;
+            background: #cccccc;
+        }
+        .main{
+            border: 1px solid black;
+            background: red;
+            height: 300px;
+            width: 800px;
+            position: absolute;
+            left: 380px;
+        }
+        .footer{
+            height: 60px;
+            line-height: 60px;
+            border: 1px solid black;
+            background: #cccccc;
+            text-align: center;
+            font-size: 16px;
+            position: absolute;
+            top: 390px;
+            width: 1200px;
+        }
+        #body{
+            border: 1px solid black;
+        }
+
+
+    </style>
+    <div id="body">
+    <div class="header">
+        这是标题
+    </div>
+    <div class="nav">
+        这是左目录
+        <ul>
+
+            <li>体育</li>
+            <li>娱乐</li>
+            <li>政治</li>
+            <li>头条</li>
+            <li>图片</li>
+        </ul>
+    </div>
+
+    <div class="main">
+        这是内容
+        <p>古人云：“等闲识得东风面，万紫千红总是春。”假如四季是美丽动人的画，那春天便是五颜六色的色彩画;假如四季是一本生动有趣的书，
+            那春便是书中最精彩的一段.</p>
+        <p>假如四季是一支舞，那春便是悠扬动听的歌声;假如四季是一首歌，那春便是一个个欢快的音符。
+
+            春，是一朵骄傲的花朵盛开在大地上。</p>
+    </div>
+
+
+    <div class="footer">
+        版权所有，违反必究
+    </div>
+    </div>
+</body>
+</html>

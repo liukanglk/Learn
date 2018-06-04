@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+console.log("A");
+/*while(true){
+
+}
+console.log('B');
+答案是输出A后，一直运行while，因为while是同步队列，所以不会输出B*/
+/*setTimeout(function () {
+    console.log('B');
+},0);
+while (1){
+
+}
+答案也是输出A后，一直运行while，不会输出B，所以JS中同步队列运行完成前，不会运行异步队列*/
+
+for(var i=0;i<4;i++){
+    setTimeout(function () {
+        console.log(i);
+    },1000);
+}
+//答案是4,4,4,4 并不是0，1,2,3  因为for循环是同步任务
+//     异步任务的放入时间和执行时间
+</script>
+
+</body>
+</html>

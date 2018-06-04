@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建对象</title>
+</head>
+<body>
+<script>
+    {
+
+        // 工厂模式
+        function createPerson(name) {
+            var o=new Object();
+            o.name=name;
+            o.sayName=function () {
+                console.log(name);
+            }
+            return o;
+        }
+
+        var person=createPerson('工厂模式');
+
+    }
+
+    {
+        // 构造函数模式
+        function Person(name) {
+            this.name=name;
+            this.sayName=function () {
+                console.log(name);
+            }
+        }
+        var person1=new Person('构造函数模式');
+
+    }
+
+
+    {
+        // 原型模式
+        function personProto() {
+
+        }
+        personProto.prototype.name='原型模式';
+        personProto.prototype.sayName=function () {
+            console.log(this.name);
+        }
+
+        var person2=new personProto();
+    }
+
+    {
+        // 组合使用构造函数和原型模式
+        function Person4(name) {
+            this.name=name;
+        }
+        Person4.prototype={
+            constructor:Person4,
+            sayName:function(){
+                console.log(this.name);
+            }
+            
+        }
+
+        var person4=new Person4('组合模式');
+    }
+
+    {
+    //    动态原型模式
+        function Person5(name) {
+            this.name=name;
+            if (typeof this.sayName!=="function"){
+                Person5.prototype.sayName=function () {
+                    console.log(this.name);
+                }
+            }
+        }
+        var person5=new Person5('动态原型模式')
+    }
+
+
+    {
+        // 寄生构造函数模式  函数的作用仅仅是封装创建对象的代码
+        function Person6(name) {
+            var o=new Object();
+            o.name=name;
+            o.sayName=function () {
+                console.log(this.name);
+            };
+            return o;
+        }
+        var person6=new Person6('寄生构造函数模式')
+
+
+    }
+
+
+
+</script>
+</body>
+</html>

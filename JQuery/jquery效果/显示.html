@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../jquery.js"></script>
+</head>
+<body>
+<script>
+$(document).ready(function () {
+    $("#hide").click(function () {
+        $('#p1').hide();
+    });
+
+    $("#show").click(function () {
+        $("#p1").show();
+    });
+    });
+
+//更为简单的办法是使用toggle  他是hide和show的切换
+
+$(document).ready(function () {
+    $("#toggle").click(function () {
+        $('#p1').toggle("slow");
+    });
+});
+</script>
+<p id="p1">如果点击“隐藏”按钮，我就会消失。</p>
+<button id="hide" type="button">隐藏</button>
+<button id="show" type="button">显示</button>
+<button id="toggle">toggle切换</button>
+</body>
+</html>

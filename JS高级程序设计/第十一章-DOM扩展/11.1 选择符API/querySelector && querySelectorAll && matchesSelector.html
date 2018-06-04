@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //选择符API的两个核心方法 querySelector()和querySelectorAll()
+    //querySelector():接收一个CSS选择符，返回与该模式匹配的第一个元素，如果找不到就返回NULL
+
+    //取得body元素
+    var body=document.querySelector("body");
+    //取得ID为“myDiv”的元素
+    var myDiv=document.querySelector("#myDiv");
+    //取得类为"selected"的第一个元素
+    var selected=document.querySelector(".selected");
+    //取得类为"button"的第一个图像元素
+
+    var img=document.body.querySelector("img.button");
+
+    //querySelectorAll():它返回的是所有匹配的元素，而不仅仅是一个元素，这个方法返回的是一个NodeList的实例
+
+    //取得某<div>中的所有<em>元素
+    var ems=document.getElementById("div").querySelectorAll("em");
+
+    //取得类为“selectd”的所有元素
+
+    var selectds=document.querySelectorAll(".selected");
+
+    //取得所有<p>元素中的所有<strong>元素
+
+    var strongs=document.querySelectorAll("p strong");
+
+    //matchesSelector(): 如果调用元素与该选择符匹配，返回true，否则 false
+
+
+
+
+</script>
+
+</body>
+</html>

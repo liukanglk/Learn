@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>流体浮动布局</title>
+</head>
+<body>
+    <!--流体浮动布局
+        规格：当视窗变化时跟着变化
+        采用：浮动布局
+         兼容：兼容当前主流浏览器-->
+
+<!--流体浮动两列布局-->
+    <style>
+        html *{
+            margin: 0;
+        }
+        body{
+            background: #fff;
+            margin: 10px;
+        }
+        #header{
+            border: 1px solid black;
+            height: 60px;
+            background: #ccc;
+            margin-bottom: 10px;
+        }
+        #header h1{
+            font-size:16px;
+            text-align: center;
+            line-height: 60px;
+
+        }
+        #nav{
+            border: 1px solid black;
+            width: 20%;
+            height: 300px;
+            float: left;
+            background: yellow;
+            margin-bottom: 10px;
+        }
+        #nav ul{
+            background: #cccccc;
+            width: 50px;
+            margin: 0 auto;
+            line-height: 150%;
+
+        }
+        #main{
+            border: 1px solid black;
+            width: 55%;
+            height: 300px;
+
+            background: red;
+            margin-bottom: 10px;
+            margin-left:22% ;
+        }
+        #main p{
+            padding: 10px;
+            text-indent: 34px;
+            letter-spacing: 2px;
+            line-height: 150%;
+        }
+        #nava{
+            border: 1px solid black;
+            width: 20%;
+            height: 300px;
+            background: yellow;
+            float: right;
+        }
+        #nava ul{
+            width: 50px;
+            margin: 0 auto;
+        }
+        #footer{
+            border: 1px solid black;
+            height: 60px;
+            line-height: 60px;
+            background: blue;
+            clear: both;
+
+        }
+
+        #footer p{
+            text-align: center;
+        }
+
+    </style>
+<div id="header">
+    <h1>这里是标题</h1>
+</div>
+
+<div id="nav">
+    左导航
+    <ul>
+        <li>新闻</li>
+        <li>杂志</li>
+        <li>报纸</li>
+        <li>体育</li>
+        <li>音乐</li>
+        <li>美术</li>
+
+    </ul>
+</div>
+    <!--若三列 则在加一项-->
+
+
+    <div id="nava">
+        右导航
+        <ul>
+            <li>新闻</li>
+            <li>杂志</li>
+            <li>报纸</li>
+            <li>体育</li>
+            <li>音乐</li>
+            <li>美术</li>
+
+        </ul>
+    </div>
+    <div id="main">
+        右内容
+        <p>到家萨拉看得见啊肯德基爱大家都拉肯德基可拉倒就爱看辣鸡啊可怜的</p>
+        <p>到家萨拉看得见啊肯德基爱大家都拉肯德基可拉倒就爱看辣鸡啊可怜的的就撒卡顿及萨克雷多久啊肯德基爱丽丝
+            大大大爱上哒大大</p>
+
+    </div>
+<div id="footer">
+    <p>版权所有，违法必究</p>
+</div>
+</body>
+</html>

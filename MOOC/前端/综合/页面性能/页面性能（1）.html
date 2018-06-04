@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面性能1</title>
+    <script src="defer1.js" defer></script>
+    <script src="defer2.js" defer></script>
+    <!--执行顺序与加载顺序有关 依次执行-->
+    <script src="async1.js" async></script>
+    <script src="async2.js" async></script>
+    <!--执行顺序与加载顺序无关-->
+</head>
+<body>
+<div class="">
+    test
+    <script>
+        console.log('write');
+        document.write("<span>write</span>");
+    </script>
+</div>
+
+<script>
+for(var i=1;i<200000;i++){
+    if (i%20000==0) {
+        console.log(i);
+    }
+}//先输出数字，在输出defer1 defer2
+
+</script>
+</body>
+</html>

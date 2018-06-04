@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+//能够把CSS元素包含到HTML页面的元素有两个 其中<link>元素用于包含来自外部的元素 <style>元素用于指定嵌入的样式
+    //如下例
+// <link rel="stylesheet" type="text/css" href="styles.css">
+    var link=document.createElement("link");
+    link.rel="stylesheet";
+    link.type="text/css";
+    link.href="styles.css";
+    var head=document.getElementsByTagName("head")[0];
+    head.appendChild(link); //将link添加至head中
+
+
+    /*style 如下例
+    <style type="text/css">
+        body{
+        background-color:red;
+}
+</style>*/
+</script>
+</body>
+</html>

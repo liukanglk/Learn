@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作用域</title>
+</head>
+<body>
+<script>
+    //Es5
+    const callbacks=[];
+    for(var i=0;i<=2;i++){
+        callbacks[i]=function () {
+            return i*2;
+        }
+    }
+
+    console.table([
+        callbacks[0](),
+        callbacks[1](),
+        callbacks[2](),
+    ]) //6,6,6
+
+    //ES6中
+    //用let声明的变量有一个块作用域的概念，
+    const callbacks2=[];
+    for(let j=0;j<=2;j++){
+        callbacks2[j]=function () {
+            return j*2
+        }
+    }
+
+    console.table([
+        callbacks2[0](),
+        callbacks2[1](),
+        callbacks2[2](),
+    ]);
+
+
+
+    // 立即执行函数
+    ((function f() {
+        const foo=function () {
+            return 1;
+        }
+        console.log('foo===1',foo()===1);
+        ((function () {
+            const foo=function () {
+                return 2
+            }
+            console.log('foo===2',foo()===2);
+        })())
+    })())
+
+    //es5中 两个定义foo并没有报错  也就是他们被各自的作用域隔离开
+
+    // 在es6中只需要定义花括号就可以
+    {
+        function foo() {
+        return 3;
+    }
+    console.log('foo===3',foo()===3);
+    }
+
+    {
+        function foo() {
+            return 4;
+        }
+        console.log('foo===4',foo()===4);
+    }
+</script>
+</body>
+</html>

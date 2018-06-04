@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX</title>
+    <script type="text/javascript" src="../jquery.js"></script>
+</head>
+<body>
+<script>
+    /*load()是简单但强大的AJAX方法
+    * load(():从服务器加载数据，并把返回的数据放入被选元素中
+    * 语法：$(selector).load(URL,data,callback);
+    * 可选的回调函数可以设置不同的参数：
+    * responseTXT：包含调用成功时的内容
+    *statusTXT:包含调用的状态
+    * xhr：包含XMLHttpRequest对象
+    * */
+    $(document).ready(function () {
+        $('#btn1').click(function () {
+          //  $('#test').load('demo.txt');  //通过AJAX加载txt内容
+            $('#test').load('demo.txt #p1');  //通过AJAX加载txt id为p1 内容
+        });
+    });
+
+
+
+</script>
+
+
+<h3 id="test">请点击下面的按钮，通过 jQuery AJAX 改变这段文本。</h3>
+<button id="btn1" type="button">获得外部的内容</button>
+</body>
+</html>

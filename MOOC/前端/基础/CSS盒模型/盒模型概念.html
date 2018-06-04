@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS盒模型</title>
+    <style>
+        html *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<!--
+基本概念：标准模型+IE模型
+标准模型和IE模型的区别
+CSS如何设置这两种模型
+JS如何设置获取盒模型对应的宽和高
+实例题（根据盒模型解释边距重叠）
+BFC（边距重叠解决方案）
+-->
+
+<!--
+BFC概念：块级元素格式化上下文
+BFC原理：（1）在BFC这个元素的垂直方向的边距会发生重叠
+         （2）BFC的区域不会与浮动元素的BOX重叠
+         （3）BFC在页面上是一个独立的容器，外面的元素不会影响它里面的元素，同理里面也不会影响外面
+         （4）计算BFC高度的时候，浮动元素也会参与计算
+如何创建BFC：
+            （1）float值不为none
+            （2）只要position值不为static或relative
+            （3）dispaly是为table等
+            （4）overflow不为visable
+BFC的使用场景：
+-->
+
+</body>
+<section id="sec">
+    <style>
+        #sec{
+            background: #f00;
+        }
+        .child{
+            height:100px;
+            margin-top: 10px;
+            background: yellow;
+        }
+    </style>
+    <article class="child">
+
+    </article>
+</section>
+<!--BFC垂直方向边距重叠-->
+<section id="margin">
+    <style>
+        #margin{
+            background: pink;
+            overflow: hidden;
+        }
+        #margin>p{
+            margin: 5px auto 25px;
+            background: red;
+        }
+    </style>
+    <p>1</p>
+    <div style="overflow:hidden">
+    <p>2</p>
+    </div>
+    <p>3</p>
+</section>
+
+<!--BFC的区域不会与浮动元素的BOX重叠-->
+<section id="layout">
+    <style>
+        #layout{
+            background: red;
+            margin-top: 10px;
+        }
+        #layout .left{
+
+            float: left;
+            width: 100px;
+            height: 100px;
+            background: pink;
+        }
+        #layout .right{
+
+            height: 110px;
+            background: #ccc;
+            overflow: auto;
+
+        }
+
+    </style>
+    <div class="left"></div>
+    <div class="right"></div>
+</section>
+
+<!--BFC子元素即使是float也会参与运算-->
+<section id="float">
+    <style>
+        #float{
+            background: red;
+
+            /*开启BFC的两种方式
+            （1）overflow:auto
+            (2)float*/
+            float:left;
+
+        }
+        #float .float{
+        float: left;
+            font-size: 30px;
+        }
+    </style>
+    <div class="float">我是浮动元素</div>
+
+</section>
+<script>
+     /*JS如何设置获取盒模型对应的宽和高
+     (1) dom.style.width/height  取出内联样式的宽和高 不能取出外联的
+     (2)dom.currentStyle.width/height  但只能IE支持
+     (3)window.getComputedStyle(dom).width/height 各种浏览器都支持
+     (4)dom.getBoundingClientRect().width/height  */
+</script>
+</html>

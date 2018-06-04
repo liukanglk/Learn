@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="alert('Loaded!')" onunload="alert('unloaded')" onresize="alert('Resized')" onscroll="alert('Scrolled')">   <!--第二种方法在 -->
+
+<script>
+    //load事件:当页面玩去哪加载后在window上触发，当所有框架都加载完毕时在跨佳绩上触发，当图像加载完毕在<img>上触发等等。
+    // 两种方式 一是在JS里
+    EventUtil.addHandler(window,"load",function (event) {
+        alert("Loaded!");
+    });
+
+    //unload事件：
+    //两种方式 （1）在JavaScipt里
+    EventUtil.addHandler(window,"unload",function (event) {
+        alert("unloaded");
+    });
+
+    //resize事件：浏览器窗口被调整到一个新高度或宽度时触发
+    EventUtil.addHandler=(window,"resize",function (event) {
+        alert("Resized");
+    });
+
+    //scroll事件：当用户滚动带滚动条元素时触发
+
+</script>
+
+</body>
+</html>

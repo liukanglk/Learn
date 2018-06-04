@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Foo() {
+        getName=function (){    //getName 前没有var  是全局变量  调用相当于重新赋值
+            console.log(1);
+        };
+        return this;  //this 指向window 也就是全局变量
+    }
+
+    Foo.getName=function () {
+        console.log(2);
+    }
+
+    Foo.prototype.getName=function () {
+        console.log(3);
+    }
+
+    var getName=function(){
+        console.log(4);
+    }
+
+    function getName() {
+        console.log(5);
+    }
+
+    Foo.getName();  //2
+    getName(); //4
+   /* 变量提升：JS中函数及变量的声明将被提升到函数的最顶部，所以变量可以先使用后声明，
+    但是只有声明变量会提升，但是初始化不会提升。*/
+    Foo().getName(); //1
+     getName(); //等同于window.getName 因为上个函数刚给getName赋了值，所以等于上个  1
+
+
+    /*做下面三个题首先要明白运算符的优先级
+    成员访问"."的优先级大于"new"带参 大于new 不带参
+
+
+
+
+    */
+     new Foo.getName();    //所以这个函数相当于：new function () {console.log(2);}();  2
+     new Foo().getName();  //首先 变为 ‘点’左边和‘点’右边部分 即(new Foo()).(getName()) new Foo即为Foo的实例 然后找getName方法，在原型链中找到 //3
+     new new Foo().getName();
+//变为new foo.getName() 其中foo为Foo的实例  3
+ </script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+function myFunction(str) {
+    var output="";
+    if(typeof str.name=="string"){
+        output+="Name: "+str.name+"\n";
+    }
+    if(typeof str.age=="number"){
+        output+="Age: "+str.age+"\n";
+    }
+    alert(output);
+}
+myFunction({
+    name:"LK",
+    age:15
+})
+myFunction({
+    age:16
+})
+</script>
+
+</body>
+</html>

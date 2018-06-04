@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>固定浮动布局</title>
+    <style>
+        html *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!--规格：固定大小，不能随着视窗改变-->
+    <!--采用：浮动布局-->
+    <!--兼容：当前主流浏览器-->
+<!--两列布局-->
+    <style>
+    #header{
+        width: 600px;
+        background: #ccc;
+        border: 1px solid black;
+        margin: 0 auto;
+    }
+    #header h1{
+        text-align: center;
+        height: 100%;
+        line-height: 60px;
+        font-size: 16px;
+        background: red;
+    }
+        #footer{
+            margin: 0 auto;
+            background: #ccc;
+            border: 1px solid black;
+            width: 600px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            clear: both;
+        }
+        #body{
+            border: 1px solid black;
+
+            width: 600px;
+            margin: 0 auto;
+            margin-top: 10px;
+
+        }
+        #nav{
+            width: 100px;
+            height: 380px;
+            border: 1px solid black;
+            float: left;
+            margin-bottom: 10px;
+        }
+         #nav1{
+            width: 100px;
+            height: 380px;
+            border: 1px solid black;
+            float: right;
+            margin-bottom: 10px;
+        }
+
+        #main{
+            width: 380px;
+            height: 380px;
+            border: 1px solid black;
+            float: left;
+            margin-bottom: 10px;
+        }
+    </style>
+    <div id="header">
+        <h1>上标题</h1>
+    </div>
+    <div id="body">
+
+
+    <div id="nav">
+        左导航
+        <ul>
+            <li>新闻</li>
+            <li>杂志</li>
+            <li>报纸</li>
+
+
+        </ul>
+    </div>
+    <div id="main">
+        右内容
+
+        <p>到家萨拉看得见啊肯德基爱大家都拉肯德基可拉倒就爱看辣鸡啊可怜的</p>
+        <p>到家萨拉看得见啊肯德基爱大家都拉肯德基可拉倒就爱看辣鸡啊可怜的的
+            就撒卡顿及萨克雷多久啊肯德基爱丽丝
+            大大大爱上哒大大</p>
+    </div>
+        <div id="nav1">
+            左导航
+            <ul>
+                <li>新闻</li>
+                <li>杂志</li>
+                <li>报纸</li>
+
+
+            </ul>
+        </div>
+    </div>
+
+
+    <div id="footer">
+        底版权
+    </div>
+</body>
+</html>

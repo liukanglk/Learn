@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>九宫格FLEX</title>
+</head>
+<style>
+    html *{
+        margin: 0;
+        padding: 0;
+
+    }
+    body{
+        padding: 50px;
+    }
+
+    ul li{
+        border: 3px solid #ccc;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        list-style-type: none;
+        box-sizing: border-box;
+        margin-left: -3px;
+        margin-top: -3px;
+
+
+    }
+    li:hover{
+        border-color:red ;
+        z-index: 2;
+    }
+    ul{
+        width: 300px;
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+    li:nth-child(3n+1){
+        /*margin-left: 0;*/
+    }
+
+</style>
+<body>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+    </ul>
+
+</body>
+</html>

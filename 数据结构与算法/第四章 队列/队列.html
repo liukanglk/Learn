@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>队列</title>
+</head>
+<body>
+<script>
+    /*队列：先进先出
+    **
+    * */
+    function Queue() {
+        var queue=[];
+        this.enqueue=function (ele) {
+            queue.push(ele);
+        };
+        this.dequeue=function () {
+
+            return queue.shift();
+        };
+        this.front=function () {
+            return queue[0];
+        };
+        this.isEmpty=function () {
+            return queue.length===0;
+        };
+        this.size=function () {
+            return queue.length;
+        };
+        this.print=function () {
+            return console.log(queue.toString());
+        }
+    }
+
+
+
+    var q=new Queue();
+    console.log(q.isEmpty());
+    q.enqueue(1);
+    q.enqueue(2);
+    q.print();
+    console.log(q.isEmpty());
+    console.log(q.size());
+    q.dequeue();
+    console.log(q.size());
+
+
+</script>
+</body>
+</html>

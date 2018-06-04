@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    add()
+    remove()
+    has()：如果由该值，返回true
+    clear()：清空
+    size():返回集合中包含的元素的数量
+    values()：返回一个包含集合中所有值得数组
+     */
+    function Set() {
+        items = {};
+
+        this.has = function (value) {
+            return value in items;
+        };
+        //或者
+        /*this.has=function (value) {
+        return hasOwnProperty(value);
+    }; */
+
+        this.add = function (value) {
+            if (!this.has(value)) {
+                items[value] = value;
+                return true;
+            }
+            return false;
+        };
+
+        this.remove = function (value) {
+            if (this.has(value)) {
+                delete  items[value];
+                return true;
+            }
+            return false;
+        };
+        this.remove=function (value) {
+            if(this.has(value)){
+                delete items[value];
+                return true;
+            }
+            return false;
+        };
+
+        this.clear = function () {
+            items = {};
+        };
+        this.size = function () {
+            return Object.keys(items).length;
+        };
+        this.values = function () {
+            return Object.keys(items);
+        };
+    }
+    var set=new Set();
+    set.add(1);
+    console.log(set.values());
+    console.log(set.has(1));
+    console.log(set.size());
+
+    set.add(2);
+    console.log(set.values());
+    console.log(set.has(2));
+    console.log(set.has(12));
+    console.log(set.size());
+
+    set.remove(1);
+    console.log(set.values());
+
+    set.remove(2);
+    console.log(set.values());
+
+</script>
+
+</body>
+</html>

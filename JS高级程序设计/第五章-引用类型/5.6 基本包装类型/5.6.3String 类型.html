@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var stringValue="     Hello world";
+    console.log(stringValue.length);
+    //字符方法 charAt()和charCodeAt() 这两个方法都接收一个参数 即基于0的字符位置 eg：
+    console.log(stringValue.charAt(1)); //e
+    console.log(stringValue.charAt(4)); //e
+    console.log(stringValue.charCodeAt(1)); //101  "e"的字符编码
+    //访问字符的另外一个办法
+    console.log(stringValue[1]); //e
+
+
+    //字符串操作方法
+    var result=stringValue.concat(" LK ","!")
+    console.log(stringValue);
+    console.log(result);  //concat()：连接字符串
+
+    //trim(): 创建一个字符串副本，删除前缀及后缀所有空格 然后返回结果
+    console.log(result.trim());
+
+    //字符串大小写转换方法
+    console.log(stringValue.toUpperCase()); //大写
+    console.log(stringValue.toLowerCase());  //小写
+    console.log(stringValue.toLocaleUpperCase());  //  大写
+    console.log(stringValue.toLocaleLowerCase());  //  小写
+</script>
+
+</body>
+</html>

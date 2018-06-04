@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画animate</title>
+    <script type="text/javascript" src="../jquery.js"></script>
+</head>
+<body>
+<style>
+#absolute{
+    height: 200px;
+    width: 200px;
+    background: yellow;
+    position: absolute;
+}
+#relative{
+    margin-top: 250px;
+    height: 200px;
+    width: 200px;
+    background: blue;
+    position: relative;
+}
+</style>
+<script>
+    // 动画语法：animate({params},speed,callback)  {}中为CSS属性
+    //默认情况下，所有 HTML 元素的位置都是静态的，并且无法移动。如需对位置进行操作，记得首先把元素的 CSS position 属性设置为 relative、fixed 或 absolute。
+$(document).ready(function () {
+    $('.absolute').click(function () {
+        $('#absolute').animate({left:'220px',top:'300px'});
+    });
+});
+
+// 若为相对值，则语法需要为+=或者-=
+    $(document).ready(function () {
+        $('.relative').click(function () {
+            $('#relative').animate({left:'+=220px',top:'+=300px', height:'+=150px'});
+        });
+    });
+</script>
+</body>
+<button class="absolute">绝对位置</button>
+<button class="relative">相对位置</button>
+<div id="absolute"></div>
+<div id="relative"></div>
+</html>

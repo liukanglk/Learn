@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var age=19;
+    function sayAge() {
+        console.log(this.age)
+    }
+
+    console.log(window.age);
+    sayAge();
+    window.sayAge();
+
+    //全局变量虽然和window性质一样，但声明后还是有却别的 全局变量不可以通过delete删除 如以下例子：
+    var age=18;
+    window.age1=19;
+
+    delete window.age;
+    delete window.age1;
+
+    console.log(age);
+    console.log(typeof age1); //undefined
+
+</script>
+</body>
+</html>

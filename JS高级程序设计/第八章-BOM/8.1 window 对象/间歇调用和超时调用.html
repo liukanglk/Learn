@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //超时调用 需要采用setTimeout（）方法，他执行两个参数：要执行的代码和以毫秒表示的时间 下例对setTimeout的调用都会在"x"秒钟后显示一个警告窗
+    //设置：超时调用
+    var timeoutId=setTimeout(function () {
+        alert("hello world");
+    },3000);
+    //注意 把它取消
+//间歇调用：setInterval(): 按照指定的时间间隔重复执行代码，知道间歇调用被取消，或者页面被卸载
+     setInterval(function () {
+         alert("heelo");
+     },2000)
+
+         //一个间歇调用的例子
+    var num=0;
+     var max=10;
+     var intervalId=null;
+
+     function incrementNumber() {
+         num++;
+         //如果执行次数达到max设定的值，则取消后续尚未执行的调用
+         if (num==max){
+
+             clearInterval(intervalId);
+             alert("Done!");
+         }
+
+     }
+
+     intervalId=setInterval(incrementNumber,500);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//alert()  confirm() prompt()
+confirm("are you sure");
+
+if(confirm("are you sure")){
+    alert("I am sure");
+}else{
+    alert("sorry");
+}
+
+//prompt():提示框 用于提示用户输入一些文本，提示框中除了显示OK和Cancel按钮以外，还会显示一个文本输入域
+//两个参数：（1）显示的文本 （2）默认的输入（可以为空字符）
+    prompt("what's your name?" ,"LK");
+
+    var result=prompt("what's your name ","");
+    if(result!==null){
+        alert("welcome:"+result);
+    }
+</script>
+</body>
+</html>

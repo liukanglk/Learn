@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滑动</title>
+    <script type="text/javascript" src="../jquery.js"></script>
+</head>
+<body>
+<style>
+    div{
+        background: #0ca547;
+        display: none;
+    }
+ p{
+        background: #0ca547;
+    }
+
+</style>
+<script>
+/*$(document).ready(function () {
+    $('.flip').click(function () {
+        $('.panel').slideDown('slow');//滑下来
+
+        });
+    });
+$(document).ready(function () {
+    $('.flip').click(function () {
+        $('.panel').slideUp('slow');//滑上
+
+        });
+    });*/
+
+// 更为简便的是slideToggle
+$(document).ready(function () {
+    $('.flip').click(function () {
+        $('.panel').slideToggle('slow');//滑上
+
+    });
+});
+</script>
+<div class="panel">
+    <p>W3School - 领先的 Web 技术教程站点</p>
+    <p>在 W3School，你可以找到你所需要的所有网站建设教程。</p>
+</div>
+
+<p class="flip">请点击这里</p>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function SpecialArray(){
+        //创建数组
+        var values=new Array();
+        //添加值
+        values.push.apply(values,arguments);
+        //添加方法
+        values.toPipedString=function () {
+            return  this.join("|");
+        };
+        return values;
+    }
+    var colors=new SpecialArray("red","blue","green");
+    console.log(colors.toPipedString());
+</script>
+
+</body>
+</html>

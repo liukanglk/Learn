@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<div id="example">
+    a={{a}},b={{b}}
+</div>
+<div class="demo">
+    {{fullName}}
+</div>
+</body>
+<script>
+    {
+        var vm=new Vue({
+            el:'#example',
+            data:{
+                a:1
+            },
+            computed:{
+                //一个计算属性的getter
+                b:function () {
+                    //this指向vm实例
+                    return this.a+1;
+                }
+            }
+        })
+        console.log(vm.b);
+        vm.a=2;
+        console.log(vm.b)
+
+    }
+
+
+//    $watch:用于观察Vue实例上的变动
+    {
+        var vm=new Vue({
+            el:'#demo',
+            data:{
+                firstName:'Foo',
+                secondName:'Bar',
+                fullName:'Foo Bar',
+            }
+        })
+        //这种为watch  明显繁琐
+        vm.$watch('firstName'),function (val) {
+            this.fullName=val+''+this.lastName;
+        }
+        vm.$watch('secondName'),function (val) {
+            this.fullName=this.firstName+''+val;
+        }
+
+        //下面为计算属性
+        computed:function f() {
+            return this.firstName+''+this.secondName
+        }
+
+    //计算属性默认是getter ，不过在需要时也可以用到setter
+        computed:{
+            fullName:{
+                //getter
+                get:function f1() {
+                    return this.firstName+''+this.secondName
+                }
+                //setter
+                set:function f2(newVal) {
+                    var names=newValue.split('');
+                    this.firstName=names[0]
+                    this.secondName=names[names.length-1]
+                }
+            }
+        }
+
+
+
+    }
+
+</script>
+
+
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组去重</title>
+</head>
+<body>
+<script>
+    let a=[1,2,3,4,5,3,5,7,8];
+    function unique1(arr) {
+        //效率低 需要遍历数组
+        let result=[];
+        for (let i of arr){
+            if (result.indexOf(i)===-1){
+                result.push(i);
+            }
+        }
+        return result;
+    }
+    console.log(unique1(a));
+
+    function unique2(arr) {
+    //    数组下标判断法  遍历数组 利用indexOf判断元素值是否与当前索引相等
+        let result=[];
+        arr.forEach(function(value,index,arr){
+            if (arr.indexOf(value)===index){
+                result.push(value);
+            }
+        });
+        return result;
+    }
+
+    console.log(unique2(a));
+</script>
+
+</body>
+</html>

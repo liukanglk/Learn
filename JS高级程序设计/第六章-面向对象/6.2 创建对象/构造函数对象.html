@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function Person(name,age,job) {
+        this.name=name;
+        this.age=age;
+        this.job=job;
+        this.sayName=function () {
+            alert(this.name);
+        };
+    }
+    var person1=new Person("LK",18,"CF");
+    var person2=new Person("SW",19,"TE");
+</script>
+
+</body>
+</html>

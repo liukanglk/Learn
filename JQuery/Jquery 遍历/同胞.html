@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>同胞</title>
+    <script type="text/javascript" src="../jquery.js"></script>
+</head>
+<body class="siblings">
+<script>
+    /*
+    在DOM树种遍历元素的同胞元素
+    * siblings():返回所选元素的所有同胞元素
+    * next():返回所选元素的下一个同胞元素
+    * nextAll():返回所选元素后面的所有同胞元素
+    * nextUntil():返回两个直接的同胞元素（向后）
+    * prev():返回所选元素的前一个同胞元素
+    * prevALL():返回h2的前面所有同胞元素
+    * prevUntil();返回两个之间的同胞元素（向前）
+    *
+    * */
+$(document).ready(function () {
+  //  $('h2').siblings().css('borderColor','red');  //返回h2的所有同胞元素
+  //  $('h2').siblings('p').css('color','red');  //返回h2的所有p同胞元素
+  //  $('h2').next().css('color','red');  //返回h2的下一个同胞元素
+  //  $('h2').nextAll().css('color','red');  //返回h2的下一个同胞元素
+  //  $('h2').prev().css('color','red');  //返回h2的前一个同胞元素
+   // $('h2').prevAll().css('color','red');  //返回h2的前面所有同胞元素
+  //  $('h2').nextUntil('p').css('color','red');  //返回h2的前面所有同胞元素（向后）
+    $('h2').prevUntil('p').css('color','red');  //返回h2的前面所有同胞元素（向前）
+
+})
+
+</script>
+<style>
+    div *
+    {
+        display: block;
+        border: 2px solid lightgrey;
+        color: lightgrey;
+        padding: 5px;
+        margin: 15px;
+    }
+</style>
+<div>div (父)
+    <p>p</p>
+    <span>span</span>
+    <h2>h2</h2>
+    <h3>h3</h3>
+    <p>p</p>
+</div>
+</body>
+</html>

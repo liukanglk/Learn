@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    * responseText:获得字符串形式的响应数据
+    * responXML：获得XML形式的响应数据
+    * status和statusTxt：以数字和文本形式返回http状态码
+    * getAllResponseHeader():获取所有响应包头
+    * getResponseHeader():获取响应的某个字段的值
+    * readyState属性
+    * 0 请求未初始化
+    * 1 请求以建立
+    * 2 请求已接收
+    * 3 请求处理中
+    * 4 请求已完成
+    * */
+
+    //XHR获得响应过程
+    var request=new XMLHttpRequest();
+    request.open("GET","get.php",true);
+    request.send();
+    request.onreadystatechange=function (ev) {
+        if (request.readyState===4 && request.status===200){
+
+        }
+    }
+</script>
+
+</body>
+</html>

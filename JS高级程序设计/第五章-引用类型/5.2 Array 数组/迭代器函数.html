@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //every会迭代数组中的每个元素
+    var isEven=function (x) {
+        document.write(x+"<br/>");
+        return(x%2==0 ) ? ture:false;
+    };
+    var numbers=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+    numbers.every(isEven);
+
+    numbers.some(isEven);
+
+
+    numbers.forEach(function (x) {
+        document.write((x%2==0+"<br/>"));
+    });
+
+
+
+</script>
+
+</body>
+</html>

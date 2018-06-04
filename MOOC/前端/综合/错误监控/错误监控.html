@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>错误监控</title>
+    <script>
+        window.addEventListener('error',function (e) {
+            console.log('捕获',e);
+        },true);  //false为冒泡
+    </script>
+</head>
+<body>
+<script src="//baidu.js">
+    //引用不存在的标签  若换成冒泡 则不能捕获到
+</script>
+
+<script>
+    (new Image()).src='http://baidu.com/tstjk?r=tstjk';
+</script>
+</body>
+</html>

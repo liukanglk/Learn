@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加</title>
+    <script type="text/javascript" src="../jquery.js"></script>
+</head>
+<body>
+<script>
+    /*四个属性
+    * append():在元素结尾添加内容
+    * prepend():在元素开头添加内容
+    * after():在被选元素之后插入内容
+    * before():在被选元素之前插入内容
+    * */
+    $(document).ready(function () {
+        $('#btn1').click(function () {
+            $('p').append('<b>刘康啊<b>');  //append()
+        });
+         $('#btn2').click(function () {
+            $('ol').append('<li>LKa</li>'); //append()
+        });
+
+
+        $('#btn3').click(function () {
+            $('p').prepend('<b>刘康啊<b>');  //prepend()
+        });
+         $('#btn4').click(function () {
+            $('ol').prepend('<li>LKa</li>'); //prepend()
+        });
+
+
+
+
+
+    });
+
+
+</script>
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+<ol>
+    <li>List item 1</li>
+    <li>List item 2</li>
+    <li>List item 3</li>
+</ol>
+<button id="btn1">append追加文本</button>
+<button id="btn2">append追加列表项</button> </br>
+<button id="btn3">prepend追加文本</button>
+<button id="btn4">perpend追加列表项</button>
+</body>
+</html>

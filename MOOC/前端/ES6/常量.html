@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常量</title>
+</head>
+<body>
+<script>
+    //ES5中写法
+    Object.defineProperty(window,'pi1',{
+        value:3.1415926,
+        writable:false //只读
+    })
+ //   console.log(pi1);
+
+    //ES6中写法 关键字Const
+    const pi2=3.1415926;
+    console.log(pi2);
+</script>
+</body>
+</html>

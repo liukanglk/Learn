@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //创建队列
+    function Queue() {
+        var items = [];
+        this.enqueue = function (element) {
+            items.push(element);
+        } //功能：向队尾添加新的项
+        this.dequeue = function () {
+            return items.shift();
+        } //功能：移除队列的第一项 并返回
+        this.front = function () {
+            return items[0];
+        }//功能：返回最前面的项
+        this.isEmpty = function () {
+            return items.length == 0;
+        }//功能：验证队列是否为空
+        this.size = function () {
+            return items.length;
+        }
+        this.print = function () {
+            console.log(items.toString());
+        }
+    };
+
+        var queue=new Queue();
+        console.log(queue.isEmpty());
+        queue.enqueue("john");
+        queue.enqueue("Jack");
+        queue.enqueue("Camila");
+        queue.print();
+        console.log(queue.size());
+        console.log(queue.isEmpty());
+        queue.dequeue();
+        queue.dequeue();
+        queue.print();
+
+
+</script>
+
+</body>
+</html>

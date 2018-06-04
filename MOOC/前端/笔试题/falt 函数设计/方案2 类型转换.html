@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>toString格式转换</title>
+</head>
+<body>
+<script>
+//方案2 做一个隐式的类型转换
+//修改了toString的方法 当然这样修改的话 也就使得数组的所有默认toString都修改成这个了
+Array.prototype.toString=function () {
+    return this.join(',');
+};
+
+var  flat=function (arr) {
+    return arr+''; //arr是一个对象  +是双模运算符
+    // 根据类型转换原理  掉对象的时候 它会先调用arr的valueof  如果valueof返回不是原始类型 则会接着调toString（）
+    //字符串+空字符串的意义就在于此
+}
+
+
+
+
+
+
+
+    var arr=['a',['b','c'],2,['d','e','f'],'g',3,4];
+    console.log(flat(arr));
+</script>
+
+</body>
+</html>

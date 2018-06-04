@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="vue.min.js"></script>
+</head>
+<body>
+<!--对象语法 ：给v-bind:class传一个对象，来动态的切换class-->
+<div class="static" v-bind:class="{'class-a':isA,'class-B'}:isB"></div>
+<!--data：{
+isA：true，
+isB：false
+} 这样最终结果为<div class="static class-a"></div>
+-->
+
+<!--数组语法，可以把一个数组传给v-bind：class，以应用一个class列表-->
+<div v-bind:class="[classA,classB]"></div>
+<script>
+    data:{
+        classA:'class-a',
+            classB:'class-b'
+    }
+    // 最后渲染为 <div class='class-a class-b'>
+</script>
+
+<!--内联式-->
+<div v-bind:style="{color:activeColor,fontSize:fontSize+'}"></div>
+
+data:{
+activeColor:'red',
+fontSize:30
+}
+或者
+<div v-bind:style="styleObject"></div>
+data:{
+styleObject:{
+color:red;
+fontSize:13px
+
+
+}
+
+</body>
+</html>

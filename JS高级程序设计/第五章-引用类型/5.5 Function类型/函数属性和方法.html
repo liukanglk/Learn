@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*Call（）和Apply（）都是在特定的作用域内调用函数。但是接受参数的方式不同。Apple（）接受两个参数，
+    一个是运行的作用域（this），另一个是参数数组。Call（）第一个是运行的作用域，但是传递给函数的参数必须列举出来。*/
+    function sum(num1,num2) {
+        return num1+num2;
+    }
+    function callSum1(num1,num2) {
+        return sum.apply(this,arguments);
+    }
+    function callSum2(num1,num2){
+        return sum.apply(this,[num1,num2]);
+    }
+    console.log(callSum1(10,10));
+    console.log(callSum2(10,10));
+
+    function  callSum3(num1,num2) {
+        return sum.call(this,num1,num2);
+    }
+    console.log(callSum3(10,10));
+
+    //apply和call真正强大的地方是他们能够扩充函数来一运行的作用域。
+    window.color="red";
+    var o={color:"blue"};
+    function  sayColor() {
+        console.log(this.color);
+    }
+    sayColor();
+    sayColor.call(this);
+    sayColor.call(window);
+    sayColor.call(o);
+
+    var objectSayColor=sayColor.bind(o);
+    objectSayColor();
+</script>
+
+</body>
+</html>

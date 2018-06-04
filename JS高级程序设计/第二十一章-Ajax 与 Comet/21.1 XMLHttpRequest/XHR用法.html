@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //HTTP是一种无状态的协议
+    /*使用XHR对象时，第一个方法就是open() 它接收三个参数
+    （1）要发送的请求的类型（"get" "post" 等等）
+    （2）请求的URL
+    （3）表示是否异步发送请求的布尔值 默认为true
+     */
+    //open("method",url,async)
+    xhr.open("get","example.php",false);
+    //启动一个针对example.php的GET请求 需要说明两点
+    //（1）URL相对于执行代码的当前页面（当然也可以使用绝对路径）
+    //（2）调用open()并不会真的发送请求，而只是启动一个请求以备发送 发送特定的请求，必须向下面一样调用send()
+    xhr.open("get","example.txt",false);
+    xhr.send(null); //send 接受一个参数 即要作为请求主体发送的数据 如果不需要通过请求主体发送数据 则必须传入null
+
+//在接收到响应后，第一步就是检查status属性，以确定响应已成功返回，一般来说将HTTP状态代码设为200作为成功的标志
+    if((xhr.status>=200 && xhr.status<300) || xhr.status==304){
+        alert(xhr.responseText);
+    }else{
+        alert("Request was unsuccessful: "+xhr.status);
+    }
+
+</script>
+
+</body>
+</html>

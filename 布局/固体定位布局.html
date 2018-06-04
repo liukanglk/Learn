@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>固体定位布局</title>
+</head>
+<body>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        margin: 10px;
+    }
+    #header{
+        border: 1px solid black;
+        width: 600px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        font-size: 16px;
+        background: #cccccc;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+    #footer{
+        width: 600px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        letter-spacing: 2px;
+        background: #ccc;
+        margin: 0 auto;
+    }
+    #body{
+        border: 1px solid black;
+        margin: 0 auto;
+        width: 600px;
+        margin-bottom: 10px;
+        position: relative;
+        /*相对定位点为#body*/
+    }
+     #nav{
+        width: 150px;
+        height: 300px;
+        background: orange;
+    }
+    #nav1{
+        width: 150px;
+        height: 300px;
+        background: red;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    #main{
+        width: 300px;
+        height: 300px;
+        background: pink;
+        position: absolute;
+        top: 0;
+        left: 150px;
+    }
+</style>
+<div id="header">
+    上标题
+</div>
+<div id="body">
+<div id="nav">
+    左导航
+
+
+
+
+</div>
+<div id="main">
+    内容
+
+</div>
+    <div id="nav1">
+        右导航
+
+
+
+
+    </div>
+</div>
+
+
+<div id="footer">
+    底版权
+</div>
+</body>
+</html>

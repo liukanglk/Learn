@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="./defer1.js" charset="UTF-8" defer></script>
+    <script src="./defer2.js" charset="UTF-8" defer></script>-->
+
+    <script src="./async1.js" charset="UTF-8" async></script>
+    <script src="./async2.js" charset="UTF-8" async></script>
+</head>
+<body>
+<div class="">
+    test
+</div>
+<script>
+document.write('<span>write</span>');
+</script>
+<script>
+    for(var i=0;i<200000;i++){
+        if(i%20000===0){
+            console.log(i);
+        }
+    }
+
+    // defer执行结果 ：是先执行完数字 在执行defer1 defer2 并且defer是按顺序执行
+    // async执行结果 ：是先执行完数字 在执行async1 async2 并且async不是按顺序执行
+</script>
+</body>
+</html>
