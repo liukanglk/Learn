@@ -9,7 +9,7 @@
     {
         //类的声明
         function Animal1() {
-            this.name=name;
+            this.name='name';
         }
 
         //类的声明2 ES6 Class
@@ -19,7 +19,7 @@
             }
         }
         // 通过类来实例化生成一个对象(通过new)
-        console.log(new Animal1, new Animal2);    //注意，如果括号内没有参数的话，括号可以不要
+        // console.log(new Animal1, new Animal2);    //注意，如果括号内没有参数的话，括号可以不要
     }
 
 
@@ -30,21 +30,22 @@
         function Parent1() {
             this.name='parent1';
         }
-        Parent1.prototype.sayName=function () {
-            console.log(this.name);
-        }
-
+        Parent1.prototype.say=function () {
+            console.log('parent1');
+        };
         function Child1() {
+            //将父级的构造函数的this指向子构造函数的实例上去
             Parent1.call(this);
-            this.age=18;
+            this.age=19;
         }
-        var child1=new Child1();
+        let child1=new Child1();
         console.log(child1.name,child1.age);
-        // console.log(child1.sayName()); 报错 无法继承原型链上内容
+        // console.log(child1.say());
+
     }
-    
-    
-    
+
+
+
     {
     //    原型继承
         function Parent2() {
@@ -66,7 +67,7 @@
         child2.play.push(4);
         // console.log(child2.play,child3.play);   改变一个 全体都改变了
 
-        
+
     }
 
     {

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Js实现Ajax</title>
+</head>
+<body>
+<script>
+    let ajax=function (param) {
+        let xhr=XMLHttpRequest ? new XMLHttpRequest(): new ActiveXObject('Microsoft.XMLHTTP');
+        let type=(param.type || 'get').toUpperCase();
+        let url=param.url;
+        if (!url){
+            return;
+        }
+        let data=param.data;
+        let dataArr=[];
+        for (let k in data){
+            dataArr.push(k+'='+arr[k]);
+        }
+        dataArr.push('_='+Math.random());
+        if (type==='GET'){
+            url=url+'?'+dataArr.join('&');
+            xhr.open(type,url);
+            xhr.send();
+        } else{
+            xhr.open(type,url);
+            xmlHttp.setRequestHeader('Content-type','application/x-www-form-unlencoded');
+            xhr.send(dataArr.join('&'));
+        }
+        xhr.onload=function () {
+            if (xhr.status===200 || xhr.status===304){
+                let res;
+                if (param.success && param.success instanceof Function) {
+                    res=xhr.responseText;
+                    if (typeof res==='string'){
+                        res=JSON.parse(res);
+                        param.success.call(xhr,res);
+                    }
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

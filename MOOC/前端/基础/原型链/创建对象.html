@@ -6,28 +6,44 @@
 </head>
 <body>
 <script>
-    //1
-    var o1={name:'o1'};
-    var o2=new Object({
-        name:'o2'
-    });
+    // 1  字面量
+    let o1={name:'o1'};
+    let o2=new Object({name:'o2'});
 
-    //2
-    var M=function (name) {
+
+    //2 构造函数
+    let M=function (name) {
         this.name=name;
     }
-    M.prototype.say=function () {
-        console.log('say');
-    }
-    var o3=new M('LK');
-    var o5=new M();
+    let o3=new M('o3');
+
 
     //3
-    var p={name:'lka'};
-    var o4=Object.create(p);
+    let p={name:'p'};
+    let o4=Object.create(p);
+
+
+//    实现new过程
+    let new2=function (func) {
+        let o=Object.create(func.prototype); //创建新对象该对象继承了构造函数的原型
+        let k=func.call(o); //（2）转移上下文
+    //    (3)判断构造函数的运行结果是不是对象类型
+        if (typeof k==='object'){
+            return k;
+        } else{
+            return o;
+        }
+    }
+
+
+
+
+
+
+
 
 //实现new运算符的效果
-    var new2=function (func) {
+/*    var new2=function (func) {
         var o=Object.create(func.prototype);
         var k=func.call(o);
         if (typeof k=='object'){
@@ -35,7 +51,7 @@
         } else{
             return o;
         }
-    }
+    }*/
 </script>
 </body>
 </html>
