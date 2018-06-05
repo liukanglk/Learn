@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BFC应用</title>
+</head>
+<body>
+<style>
+    #margin{
+        background: pink;
+        /*创建BFC*/
+        overflow: hidden;
+    }
+    #margin p{
+        background: red;
+        margin: 5px auto 25px;
+    }
+</style>
+<!--边距发生了重叠 为了解决这个问题 给子元素增加父元素 给父元素BFC-->
+<section id="margin">
+    <p>1</p>
+    <div style="overflow: hidden">
+        <p>2</p>
+        <p>3</p>
+    </div>
+</section>
+
+
+
+<!--布局时的应用-->
+<section id="layout">
+    <style>
+        #layout{
+            background: red;
+        }
+        #layout .left{
+            float: left;
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        #layout .right{
+
+            overflow: auto;   /*创建BFC来改善浮动问题*/
+            height: 110px;
+            background: #ccc;
+        }
+    </style>
+    <div class="left"></div>
+
+    <div class="right"></div>
+
+</section>
+
+<!--BFC子元素即使是float也会参与计算-->
+<section id="float">
+    <style>
+        #float{
+            margin-top: 20px;
+            background: red;
+            float: left; /* 创建BFC来改善 计算高度时  浮动元素计算问题*/
+        }
+        #float .float{
+            float: left;
+            font-size: 30px;
+        }
+    </style>
+    <div class="float">我是浮动元素</div>
+</section>
+</body>
+</html>
