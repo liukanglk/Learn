@@ -27,6 +27,7 @@
     <!--把一个大型项目拆分成几个小部分 这就是组件-->
     //全局组件 任何项目都能使用
     //vue 的每个组件都是实例 都可以定义方法什么的
+
     Vue.component('todo-item',{
         props:['content','index'],
         template:'<li @click="click">{{content}}</li>',
@@ -34,8 +35,6 @@
             click:function () {
                 this.$emit('delete',this.index);
             },
-
-
         }
     });
 

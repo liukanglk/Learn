@@ -6,31 +6,30 @@
     <script src="../vue.js"></script>
 </head>
 <body>
-<div id="root">
-    <input v-model="inputValue">
-    <button @click="Submit">提交</button>
-
-<ul>
-    <li v-for="(item,index) of list" :key="index">
-        {{item}}
-    </li>
-</ul>
+<div id="demo">
+    <input type="text" v-model="ipt">
+    <button @click="addList">Submit</button>
+    <ul>
+       <li v-for="(item,index) in list" :key="index">{{item}}</li>
+    </ul>
 </div>
-</body>
 <script>
     new Vue({
-        el:'#root',
+        el:'#demo',
         data:{
-            inputValue:'',
+            ipt:'',
             list:[],
         },
         methods:{
-            Submit:function () {
-                this.list.push(this.inputValue);
-                this.inputValue='';
+            addList:function () {
+                this.list.push(this.ipt);
+                this.ipt='';
             }
         }
 
     })
 </script>
+
+</body>
+
 </html>

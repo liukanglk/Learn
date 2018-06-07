@@ -7,40 +7,39 @@
 </head>
 <body>
 <div id="demo">
-    姓：<input type="text" v-model="firstName">
+<!--    姓：<input type="text" v-model="firstName">
     名：<input type="text" v-model="lastName">
-    <!--<div>{{firstName}}   {{lastName}}</div>-->
+    &lt;!&ndash;<div>{{firstName}}   {{lastName}}</div>&ndash;&gt;
+    <div>{{fullName}}</div>
+    <div>{{count}}</div>-->
+    姓：<input type="text" v-model="firstName">
+    名：<input type="text" v-model="secondName">
     <div>{{fullName}}</div>
     <div>{{count}}</div>
 </div>
 <script type="text/javascript">
     new Vue({
-        el:'#demo', //挂载点
-
+        el:'#demo',
         data:{
             firstName:'liu',
-            lastName:'kang',
+            secondName:'kang',
             count:0
         },
         computed:{
-          //  计算属性：一个属性是由其他的数据计算而来的结果
-          fullName:function () {
-              return this.firstName+'  '+this.lastName;
-          }
-          
+            fullName:function(){
+                return this.firstName+' '+this.secondName;
+            }
         },
-        watch:{
-        //    监听器：监听某一数据的变化 一旦发生了变化就会触发这些函数
+        watch:{  //监听器 一旦每个参数发生变化 就会触发
             firstName:function () {
-                this.count++;
+                return this.count++;
             },
-             lastName:function () {
-                this.count++;
-            },
-
+            secondName:function () {
+                return this.count++;
+            }
         }
-
     })
+
 </script>
 </body>
 </html>
