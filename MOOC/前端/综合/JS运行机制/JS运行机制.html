@@ -20,7 +20,7 @@ while (1){
 }
 答案也是输出A后，一直运行while，不会输出B，所以JS中同步队列运行完成前，不会运行异步队列*/
 
-for(var i=0;i<4;i++){
+for(let i=0;i<4;i++){
     setTimeout(function () {
         console.log(i);
     },1000);
