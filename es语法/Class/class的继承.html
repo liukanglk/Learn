@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class的继承</title>
+</head>
+<body>
+<script>
+    {
+    //    class可以通过extends关键字来实现继承
+        class Parent {
+
+        }
+        class Child extends Parent{
+            constructor(x,y,color){
+                super(x,y);
+                this.color=color;
+            }
+            toString(){
+                return this.color+' '+super.toString();
+            }
+
+        }
+        //object.getPrototypeOf() 从子类获取父类
+        console.log(Object.getPrototypeOf(Child)===Parent);
+        
+
+    }
+
+    {
+        
+        
+    }
+
+</script>
+</body>
+</html>

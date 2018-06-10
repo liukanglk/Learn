@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Class简介</title>
+</head>
+<body>
+<script>
+    {
+    //    CLASS的写法使对象原型写法更加清晰，更像面向对象编程
+    //    ES5
+        function Point(x,y) {
+            this.x=x;
+            this.y=y;
+        }
+        Point.prototype.toString=function () {
+            return '(' + this.x + ', ' + this.y + ')';
+        }
+        var p=new Point(1,2);
+
+    //    Es6
+        class PointClass{
+            constructor(x,y){
+                this.x=x;
+                this.y=y;
+            };
+            toString(){
+                return '(' + this.x + ', ' + this.y + ')';
+            }
+        }
+        
+        let pc=new PointClass(1,2);
+        console.log(pc.toString());
+        console.log(typeof PointClass);
+        console.log(pc.__proto__.constructor===PointClass);
+
+    //    ES6中 类的所有方法都定义在类的prototype上 所以可以用Object。assign方法为CLASS添加很多类
+        Object.assign(PointClass.prototype,{
+            say(){
+                console.log('say');
+            }
+        })
+        console.log(pc.say());
+    //    类内部所有定义的方法都是不可枚举的 类和模块内部 默认都是严格模式
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="demo">
+    <button onclick="loadXMLDoc()">AJAX</button>
+
+</div>
+<script>
+    function loadXMLDoc() {
+        let xmlhttp=window.XMLHttpRequest?new XMLHttpRequest():new ActiveXObject('Microsoft.XMLHTTP');
+        xmlhttp.open('GET','./exa.html',true);
+        xmlhttp.onreadystatechange=function () {
+            if (xmlhttp.readyState===4 && xmlhttp.status===200){
+                let text=xmlhttp.responseText;
+                document.getElementById('demo').innerHTML=text;
+                console.log(xmlhttp.readyState);
+            }
+        }
+        xmlhttp.send();
+    }
+
+</script>
+</body>
+</html>

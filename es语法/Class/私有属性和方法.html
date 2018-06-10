@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>静态方法</title>
+</head>
+<body>
+<script>
+    {
+    //    类相当于实例的原型，所有在类中定义的方法都会被实例继承
+        // 如果在一个方法前加上static就不会被实例继承而是通过类来调用
+        //如果静态方法中包含this 那么this会指向类 而不是实例
+        class Foo{
+            static bar(){
+                this.say();
+            }
+            static say(){
+                console.log('a');
+            }
+            say(){
+                console.log('b');
+            }
+        }
+        Foo.say();
+        Foo.bar();
+        let foo=new Foo();
+        // foo.say(); 报错
+    //父类的静态方法可以被子类继承
+        class Baz extends Foo{
+
+        }
+        Baz.say();
+    }
+</script>
+</body>
+</html>

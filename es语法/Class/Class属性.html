@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class属性</title>
+</head>
+<body>
+<script>
+    {
+    //    constructor方法是类的默认方法，通过new创建实例时，自动调用该方法 一个类必须由constructor方法，如果没有显示定义，一个空的constructor会被默认天机
+    //     class Point{
+
+        // }等同于
+        class Point{
+            constructor(){}
+        }
+        console.log(new Point() instanceof Point); //true
+
+    //    constructor 方法默认返回实例对象（this），完全可以指定返回另外一个对象
+        class Foo{
+            constructor(){
+                return Object.create(null)
+            }
+        }
+        console.log(new Foo() instanceof Foo);//  false
+
+    //    类必须通过new来调用 否则会报错
+    }
+
+
+    {
+        //类的实例方法  let x=new X(); ，实例的属性除非显式定义在其本身（即定义在this对象上），否则都是定义在原型上（
+        class copy{
+            constructor(x,y){
+                this.x=x;
+                this.y=y;
+            }
+            add(){
+                return this.x+this.y;
+            }
+            
+        }
+        let b=new copy(1,2);
+        console.log(b.add());
+        console.log(b.hasOwnProperty('add')); //false 定义在原型上
+        console.log(b.hasOwnProperty('x'));     //true
+        console.log(b.hasOwnProperty('y'));     //true
+        console.log(b.__proto__.hasOwnProperty('add'));  //true
+    }
+
+    {
+        // class 表达式
+        const myClass=class Me{   //注意函数表达式声明的类名字是myClass 而Me只能在函数内部使用
+            getClassName(){
+                return Me.name;
+            }
+        }
+        let inst=new myClass();
+        console.log(inst.getClassName());  //Me
+        
+        let person=new class{
+            constructor(name){
+                this.name=name;
+            }
+            sayName(){
+                console.log(this.name);
+            }
+        }('lk');
+        person.sayName();
+    }
+
+    {
+    //    注意的是类与函数的不同是 类不存在变量提升
+
+    }
+</script>
+</body>
+</html>

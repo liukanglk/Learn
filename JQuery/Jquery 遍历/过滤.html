@@ -9,7 +9,7 @@
 <script>
     /*三个基本的过滤方法是：
     * first():返回被选元素的首个元素
-    * last():返回所选元素的最后一个有时怒
+    * last():返回所选元素的最后一个元素
     * eq():返回元素中带有指定索引号的元素
     *
     * filter():规定一个标准，不匹配的元素会在集合中被删除，匹配的元素会返回
@@ -17,8 +17,8 @@
     * */
 
     $(document).ready(function () {
-        $('div').first().css('color','red');
-     // $('div p').last().css('color','red');
+        // $('div').first().css('color','red');
+     $('div p').last().css('color','red');
 
     })
 </script>
