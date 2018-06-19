@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../../vue.js"></script>
+</head>
+<body>
+<div id="app">
+    {{world}}
+    <my-header>
+
+    </my-header>
+    <my-header1></my-header1>
+
+</div>
+<script>
+    //$可以获取属性和方法
+    var myHeaderC={
+        template:"<p>this is my headerChild</p>"
+    }
+    //全局注册：
+    Vue.component('my-header',{ //注册组件
+        template:'<p><my-header-child></my-header-child>this is my header</p>',
+        components:{
+            'my-header-child':myHeaderC
+        }
+
+    })
+
+    var myHeader={
+        template:"<p>this is my header1</p>"
+    }
+    new Vue({
+        el:'#app',
+        data:{
+            world:'world'
+        },
+        //子组件
+        components:{
+            'my-header1':myHeader
+        }
+    })
+
+</script>
+</body>
+</html>

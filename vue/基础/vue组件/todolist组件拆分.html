@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>todolist功能开发</title>
-    <script src="../vue.js"></script>
+    <script src="../../vue.js"></script>
 </head>
 <body>
 <div id="root">
@@ -14,8 +14,7 @@
     <todo-item
             v-for="(item,index) of list"
             :key="index"
-    :content="item"
-   >
+    :content="item">
 
     </todo-item>
 </ul>
@@ -24,16 +23,9 @@
 <script>
     <!--把一个大型项目拆分成几个小部分 这就是组件-->
     //全局组件 任何项目都能使用
-    //vue 的每个组件都是实例 都可以定义方法什么的
     Vue.component('todo-item',{
         props:['content'],
-        template:'<li @click="click">{{content}}</li>',
-        methods:{
-            click:function () {
-                alert('clicked');
-            }
-
-        }
+        template:'<li>{{content}}</li>'
     });
 
     //局部组件

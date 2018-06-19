@@ -7,30 +7,25 @@
 <body>
 <style>
     *{
-        height: 100%;
         margin: 0;
         padding: 0;
     }
-    .left{
-        width: 200px;
-        background: red;
-        float: left;
+    header{
+        display: grid;
+        grid-template-rows:100vh ;
+        grid-template-columns: 200px auto;
     }
-    .right{
-        /*overflow: auto;*/
+    .top{
+        background: red;
+    }
+    .bottom{
         background: yellow;
     }
-
-
 </style>
 <header>
-    <div class="left"></div>
-
-    <div class="right">右边 右边</div>
-
+    <div class="top"></div>
+    <div class="bottom">grid</div>
 
 </header>
-
-
 </body>
 </html>

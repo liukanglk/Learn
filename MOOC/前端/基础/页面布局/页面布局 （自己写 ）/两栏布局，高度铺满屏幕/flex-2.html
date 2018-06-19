@@ -4,33 +4,30 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
 <body>
 <style>
     *{
-        height: 100%;
         margin: 0;
         padding: 0;
+    }
+    header{
+        display: flex;
+        height: 100vh;
     }
     .left{
         width: 200px;
         background: red;
-        float: left;
     }
     .right{
-        /*overflow: auto;*/
-        background: yellow;
+        flex: 1;
+        background: blue;
     }
-
 
 </style>
 <header>
     <div class="left"></div>
-
-    <div class="right">右边 右边</div>
-
-
+    <div class="right"></div>
 </header>
-
-
 </body>
 </html>
